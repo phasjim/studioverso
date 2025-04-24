@@ -1,0 +1,261 @@
+<script>
+  (function () {
+      // Set tenant name here
+      var TENANT_NAME = 'studioverso';
+
+      var d = document;
+      var sA = ['polyfills', 'js'];
+
+      for (var i = 0; i < sA.length; i++) {
+          var s = d.createElement('script');
+          s.src = 'https://' + TENANT_NAME + '.marianaiframes.com/' + sA[i];
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      }
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the
+  <a href="https://marianatek.com/?ref_noscript" rel="nofollow">
+      Web Integrations by Mariana Tek.
+  </a>
+</noscript>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+
+
+<script>
+
+  $( ( ) => {
+
+      /*
+
+        begin header buttons add
+
+        License       : < https://bit.ly/3F8sn8W >
+
+        Version       : 0.8.0
+
+        SS Version    : 7.1
+
+        Fluid
+        Engine
+        Compatible    : Not Applicable
+
+        Dependencies  : jQuery
+
+        By            : Thomas Creedon < http://www.tomsWeb.consulting/ >
+
+        */
+
+
+
+      const buttonsAdd = [
+
+          /*
+
+            following is an example of a new button data structure. copy the
+            example new button data structure and paste after the example new
+            button data structure. remove the forward slash asterisk and asterisk
+            forward slash lines from before and after the copied example. repeat
+            for as many new buttons you want to create. this has been done once
+            initially
+
+            */
+
+          /*
+
+          {
+
+            text : '[enter button text here between single quotes replacing square brackets]',
+
+            url : '[enter url here between single quotes replacing square brackets]',
+
+            // type is is optional. values are secondary, or tertiary
+
+            type : '[optional, enter type here between single quotes replacing square brackets]'
+
+            },
+
+          */
+
+          {
+
+              text : 'Buy Passes',
+
+              url : '/buy',
+
+              // type is is optional. values are secondary or tertiary
+
+              type : '[optional, enter type here between single quotes replacing square brackets]'
+
+          },           
+          {
+
+              text : 'Login',
+
+              url : '/login',
+
+              // type is is optional. values are secondary or tertiary
+
+              type : '[optional, enter type here between single quotes replacing square brackets]'
+
+          },
+
+      ]
+
+      /*
+
+        targetAtttributeValue is an optional setting. enter _self, _blank,
+        _parent, _top, or framename see < https://mzl.la/2Q0JROF > between
+        single quotes
+
+        */
+
+      const targetAtttributeValue = '';
+
+      /*
+
+        buttonOriginalTargetAttributeAdd is an optional setting. use false or
+        true. when true the target attribute will be added to SS's built-in cta
+        button
+
+        */
+
+      const buttonOriginalTargetAttributeAdd = false;
+
+      // do not change anything below, there be the borg here
+
+      const codeName = 'Header Buttons Add';
+
+      const selector = '.header-actions-action--cta, .header-menu-cta';
+
+      const typeClassMap = {
+
+          secondary : 'sqs-button-element--secondary',
+
+          tertiary : 'sqs-button-element--tertiary'
+
+      };
+
+      const version = '0.8.0';
+
+      const s = `${ codeName } v${ version }, ` +
+
+          'License < https://tinyurl.com/s872fb68 >, ' +
+
+          'Tom\'s Web Consulting < http://www.tomsWeb.consulting >';
+
+      console.log ( s );
+
+      $( selector ).each ( function ( ) {
+
+          const $this = $( this );
+
+          const $buttonOriginal = $( '.btn:first', $this );
+
+          $.each ( buttonsAdd, function ( index, buttonAdd ) {
+
+              const $button = $buttonOriginal
+
+                  .clone ( )
+
+                  .attr ( 'href', buttonAdd.url )
+
+                  .text ( buttonAdd.text )
+
+                  .appendTo ( $this );
+
+              if ( targetAtttributeValue )
+
+                  $button.attr ( 'target', targetAtttributeValue );
+
+              const clss = typeClassMap [ buttonAdd.type ];
+
+              if ( clss == undefined ) return true; // continue
+
+              $button
+
+                  .removeClass ( 'sqs-button-element--primary' )
+
+                  .addClass ( clss );
+
+          } );
+
+          if ( buttonOriginalTargetAttributeAdd && targetAtttributeValue )
+
+              $buttonOriginal.attr ( 'target', targetAtttributeValue );
+
+      } );
+
+      /* end header buttons add */
+
+  } );
+
+</script>
+<script>
+  jQuery(document).ready(function() {
+      var $instructorProfilePic = $('.instructor-profile-pic');
+
+      var parentBlock = $instructorProfilePic.closest('.fe-block');
+
+      parentBlock.css('position', 'relative');
+
+      var instagramHandle = $instructorProfilePic.data('ig-handle');
+
+      var uniqueClass = 'instructor-profile-' + instagramHandle.replace('@', '').replace(/\s+/g, '');
+
+      parentBlock.addClass(uniqueClass);
+
+      $('head').append(`
+  <style>
+    .${uniqueClass}::after {
+      content: "${instagramHandle}";
+      position: absolute;
+      right: -20%;
+      top: 20%;
+      color: #fff;
+      transform: rotate(90deg);
+      font-size: 1.375rem;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+  </style>
+`);
+  });
+
+</script>
+
+
+<script>
+  $(document).ready(function() {
+      // Event handler for click on the specified selector
+      $('.user-accounts-link .unauth').click(function() {
+          // Set a timeout to delay the function call by 3 seconds
+          setTimeout(function() {
+              // Assuming you want to apply styles to a specific iframe
+              var iframe = document.getElementById('accountFrame');
+              if (iframe) {
+                  applyStyles(iframe);
+              } else {
+                  console.log('Iframe not found');
+              }
+          }, 3000);
+      });
+  });
+
+  // Function to apply styles to the iframe
+  function applyStyles(iframe) {
+      var doc = iframe.contentDocument || iframe.contentWindow.document;
+      var styleElement = doc.createElement('style');
+      styleElement.type = 'text/css';
+      var styleRules = "";
+      /*var styleRules = document.createTextNode(
+          "h1, h2, h3, h4, h5, h6 { font-family: 'Alternate Gothic Condensed A', sans-serif; }" +
+          "body { font-family: 'Gesta', serif !important; }"
+      );*/
+      styleElement.appendChild(styleRules);
+      doc.head.appendChild(styleElement);
+  }
+
+</script>
