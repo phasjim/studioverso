@@ -31,22 +31,18 @@ By            : Thomas Creedon < http://www.tomsWeb.consulting/ >
  */
  @font-face {
     font-family: 'Alternate Gothic No2 D';
-    src: url('https://cdn.jsdelivr.net/gh/phasjim/studioverso@main/fonts/alternate-gothic-web/Alternate%20Gothic%20No2%20D%20Regular.woff') format('woff');
+    src: url("https://cdn.jsdelivr.net/gh/phasjim/studioverso@main/fonts/alternate-gothic-web/Alternate%20Gothic%20No2%20D%20Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-  }
-  
-@font-face {
-    font-family: alternate-gothic-condensed-a, sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 @font-face {
-    font-family: "gesta", sans-serif;
+    font-family: "Gesta";
+    src: url("https://cdn.jsdelivr.net/gh/phasjim/studioverso@main/fonts/gesta-web/gesta.woff") format("woff");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 /* */
@@ -75,7 +71,7 @@ strong,
 em,
 dt,
 dd {
-    font-family: "gesta", Helvetica, Arial, sans-serif !important;
+    font-family: "Gesta", Helvetica, Arial, sans-serif !important;
 }
 
 /* Additional elements that might need the font settings */
@@ -87,18 +83,18 @@ option,
 legend,
 fieldset,
 .caption-text {
-    font-family: "gesta", Helvetica, Arial, sans-serif !important;
+    font-family: "Gesta", Helvetica, Arial, sans-serif !important;
 }
 
 
 /* Specific text containers or utility classes that require the font */
 .navbar, .footer, .sidebar, .text-small, .text-large {
-    font-family: "gesta", Helvetica, Arial, sans-serif;
+    font-family: "Gesta", Helvetica, Arial, sans-serif;
 }
 
 /* Ensure links also carry the custom font */
 a {
-    font-family: "gesta", Helvetica, Arial, sans-serif;
+    font-family: "Gesta", Helvetica, Arial, sans-serif;
 }
 
 
