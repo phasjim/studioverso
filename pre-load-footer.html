@@ -250,10 +250,10 @@
       var styleElement = doc.createElement('style');
       styleElement.type = 'text/css';
       var styleRules = "";
-      /*var styleRules = document.createTextNode(
-          "h1, h2, h3, h4, h5, h6 { font-family: 'Alternate Gothic Condensed A', sans-serif; }" +
-          "body { font-family: 'Gesta', serif !important; }"
-      );*/
+      var styleRules = document.createTextNode(
+          'h1, h2, h3, h4, h5, h6 { font-family: "Alternate Gothic Condensed A", sans-serif; }' +
+          'body { font-family: "gesta", Helvetica, Arial, sans-serif !important; }'
+      );
       styleElement.appendChild(styleRules);
       doc.head.appendChild(styleElement);
   }
