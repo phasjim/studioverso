@@ -29,9 +29,16 @@ By            : Thomas Creedon < http://www.tomsWeb.consulting/ >
 /*
  CUSTOM FONT
  */
- @font-face {
+@font-face {
     font-family: 'Alternate Gothic No2 D';
     src: url("https://cdn.jsdelivr.net/gh/phasjim/studioverso@main/fonts/alternate-gothic-web/Alternate%20Gothic%20No2%20D%20Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: alternate-gothic-condensed-a;
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -47,7 +54,10 @@ By            : Thomas Creedon < http://www.tomsWeb.consulting/ >
 
 /* */
 /* Using the same font family for all headings (h1-h6) */
-h1, h2, h3, h4, h5, h6 {
+h1 {
+    font-family: 'alternate-gothic-condensed-a', 'Arial Narrow', sans-serif, !important;
+}
+h2, h3, h4, h5, h6 {
     font-family: 'Alternate Gothic No2 D', 'Arial Narrow', sans-serif, !important;
 }
 
