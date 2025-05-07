@@ -59,6 +59,19 @@
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+            <div class="media media--transparent media--hover-effect image-scroll-container">
+              <div class="image-scroll">
+                <img src="{{ card_product.featured_media | image_url: width: 533 }}" alt="{{ card_product.featured_media.alt | escape }}" class="motion-reduce" loading="lazy">
+                {%- if card_product.media[1] != null and show_secondary_image -%}
+                  <img src="{{ card_product.media[1] | image_url: width: 533 }}" alt="" class="motion-reduce" loading="lazy">
+                {%- endif -%}
+                {%- for image in card_product.images -%}
+                  <img src="{{ image | image_url: width: 533 }}" alt="{{ image.alt | escape }}" class="motion-reduce" loading="lazy">
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+          <!-- <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
@@ -104,7 +117,7 @@
                 >
               {%- endif -%}
             </div>
-          </div>
+          </div> -->
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
