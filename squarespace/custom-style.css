@@ -550,14 +550,15 @@ body .header-menu-nav {
 .instructors-inner img {
     width: 100%;
     height: 465px;
+    max-width: 100%;
     object-fit: cover;
-    object-position: center;
     display: block;
 }
 
 .instructors-inner {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -778,6 +779,7 @@ body .header-menu-nav a:not(.btn), body .header-menu-nav-item a {
     position: relative;
     height: 100%;
     background-color: #141625;
+    border-bottom: 2px solid #141625;
 }
 
 ul.slideSingle-test {
@@ -1155,8 +1157,8 @@ body .header-menu-nav-wrapper .header-menu-nav-item a:hover .header-menu-nav-ite
 
 .instructors-inner-slider .owl-item img {
     height: 450px;
-    object-fit: cover;
-    object-position: 0 33%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    object-position: center; /* Centers the image within the container */
 }
 
 .instructors-inner-slider button {
