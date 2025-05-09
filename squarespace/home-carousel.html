@@ -1,0 +1,78 @@
+<div class="firstNew-outer">
+  <div class="firstNew-inner owl-carousel">
+      <div class="slideSingle">
+          <img 
+              src="https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/24b42876-3c5f-4d1d-9bd6-83ed4908ea61/studio_verso_nov2024-93d.jpg" 
+              alt="Verso Studio" 
+              loading="lazy" 
+              class="lazy" 
+              onload="this.classList.add('loaded')">
+          <div class="firstNew-outer-content">
+              <h2>6 PROGRAMS | 1 MEMBERSHIP</h2>
+              <p>Join the Movement</p>
+              <a href="/buy">Buy Now</a>
+          </div>
+      </div>
+      <div class="slideSingle">
+          <img 
+              src="https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/3f50a9bf-6fed-48a5-aab7-2a0eea36bf16/Homepage_Slider2.jpg" 
+              alt="Verso Studio" 
+              loading="lazy" 
+              class="lazy" 
+              onload="this.classList.add('loaded')">
+          <div class="firstNew-outer-content">
+              <h2>STUDENT MEMBERSHIPS</h2>
+              <a href="/buy">Buy Now</a>
+          </div>
+      </div>
+  </div>
+  <div class="banner__spotify">
+      <div id="spotify">
+          <div class="spotify__title spotify__title--banner">
+              <div class="spotify__title--text">
+                  <p>playlist</p>
+              </div>
+          </div>
+          <div class="spotify__description spotify__description--banner">
+              <span class="spotify__description--normal">
+                  <b>RIGHT HERE</b> - ANDY C REMIX
+              </span>
+          </div>
+          <iframe 
+              data-src="https://open.spotify.com/embed/track/4EqJZ1bQ55Jq4vi2gHuQdQ" 
+              width="300" 
+              height="80" 
+              frameborder="0" 
+              allowtransparency="true" 
+              allow="encrypted-media" 
+              class="lazy-spotify"></iframe>
+      </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Initialize carousel
+    $(".firstNew-inner.owl-carousel").owlCarousel({
+      items: 1,
+      lazyLoad: true,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true
+    });
+
+    // Lazy load Spotify iframe
+    const spotifyIframe = document.querySelector(".lazy-spotify");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          spotifyIframe.src = spotifyIframe.getAttribute("data-src");
+          observer.unobserve(spotifyIframe);
+        }
+      });
+    });
+    observer.observe(spotifyIframe);
+  });
+</script>

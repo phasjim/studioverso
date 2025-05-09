@@ -776,6 +776,8 @@ body .header-menu-nav a:not(.btn), body .header-menu-nav-item a {
 
 .firstNew-outer {
     position: relative;
+    height: 100%;
+    background-color: #141625;
 }
 
 ul.slideSingle-test {
