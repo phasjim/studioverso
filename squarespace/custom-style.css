@@ -1,11 +1,8 @@
 /*
 
-begin header buttons add
-
 License       : < https://tinyurl.com/s872fb68 >
 
 Version       : 0.8.0
-
 SS Version    : 7.1
 
 Fluid
@@ -14,11 +11,12 @@ Compatible    : Not Applicable
 
 Dependencies  : LESS
 
-Note          : on mobile at 575px and below the orientation is forced to
-column
+Note          : on mobile at 575px and below the orientation is forced to column
 
-By            : Thomas Creedon < http://www.tomsWeb.consulting/ >
+Modified By   : Prita Hasjim < https://www.pritahasjim.com >
+                             < https://github.com/phasjim >
 
+Originally By : Thomas Creedon < http://www.tomsWeb.consulting/ >
 */
 
 :root {
@@ -52,7 +50,6 @@ By            : Thomas Creedon < http://www.tomsWeb.consulting/ >
     font-display: swap;
 }
 
-/* */
 /* Using the same font family for all headings (h1-h6) */
 h1 {
     font-family: "alternate-gothic-condensed-a", "Arial Narrow", sans-serif, !important;
@@ -108,45 +105,11 @@ a {
 }
 
 
-/*space between buttons*/
-
-/*
-
-direction-order controls whether buttons will be oriented in a row or column
-and if they will be in normal or reversed order. the first argument can be
-row or column, the second argument can be normal or reverse.
-
-*/
-
-/*.direction-order ( row, reverse );*/
-
-/* do not change anything below, there be the borg here*/
-
 #siteWrapper .header .header-actions-action--cta .sqs-button-element--primary {
-
     align-self: center;
-
 }
 
-/*.header .header-actions-action--cta,
-.header-menu-cta {
-
-    display : -webkit-box;
-    display : -ms-flexbox;
-    display : flex;
-
-    -webkit-box-orient : @d3;
-    -webkit-box-direction : @d2;
-    -ms-flex-direction : @d1;
-    flex-direction : @d1;
-
-    grid-gap : var(--gap);
-    gap : var(--gap);
-
-}*/
-
-/*desktop*/
-
+/* Desktop */
 .header .header-actions-action--cta {
     text-align: center;
     margin-left: 10px;
@@ -176,102 +139,6 @@ row or column, the second argument can be normal or reverse.
     margin-left: auto;
     margin-right: auto;
 }
-
-/*@media screen and ( max-width: 575px ) {
-
-    .header-menu-cta {
-
-        -webkit-box-orient: @d6;
-        -webkit-box-direction: @d5;
-        -ms-flex-direction: @d4;
-        flex-direction: @d4;
-
-    }
-
-}*/
-
-
-/* end mobile
-
- begin direction mixins
-
- begin desktop
-
- direction row, normal*/
-/*
-.direction-order ( @d, @o ) when ( @d = row ) and ( @o = normal ) {
-
-    @d1 : row;
-    @d2 : normal;
-    @d3 : horizontal;
-
-}
-
-!* direction row, reverse*!
-
-.direction-order ( @d, @o ) when ( @d = row ) and ( @o = reverse ) {
-
-    @d1 : row-reverse;
-    @d2 : reverse;
-    @d3 : horizontal;
-
-}
-
-!* direction column, normal*!
-
-.direction-order ( @d, @o ) when ( @d = column ) and ( @o = normal ) {
-
-    @d1 : column;
-    @d2 : normal;
-    @d3 : vertical;
-
-}
-
- !*direction column, reverse*!
-
-.direction-order ( @d, @o ) when ( @d = column ) and ( @o = reverse ) {
-
-    @d1 : column-reverse;
-    @d2 : reverse;
-    @d3 : vertical;
-
-}
-!*
-end desktop
-
-mobile
-
-direction column, normal*!
-
-.direction-order ( @d, @o ) when ( @o = normal ) {
-
-    @d4 : column;
-    @d5 : normal;
-    @d6 : vertical;
-
-}
-
-!*
-// direction column, reverse
-*!
-
-.direction-order ( @d, @o ) when ( @o = reverse ) {
-
-    @d4 : column-reverse;
-    @d5 : reverse;
-    @d6 : vertical;
-
-}*/
-
-
-/*/ end direction mixins
-
-// end header buttons add
-
-//hamburger menu*/
-/*//.header-burger { display:flex!important}
-//.header--menu-open .header-menu {opacity: 1!important;visibility: visible!important;}
-//.header-nav, .header-actions {visibility:hidden!important}*/
 
 .visible-on-editing {
     display: none;
@@ -641,11 +508,6 @@ body .header-menu-nav-folder .header-menu-actions {
     margin-bottom: 40px;
 }
 
-/*
-body .header-menu-nav-folder  a.btn:hover:before {
-opacity: 1;
-left: 60%;
-}*/
 body .header-menu-nav-folder a.btn {
     background: #fff !important;
     color: #000 !important;
@@ -657,21 +519,6 @@ body .header-menu-nav-folder a.btn {
     color: #000 !important;
 }
 
-/*
-body .header-menu-nav-folder a.btn:before {
-content: "";
-width: 50%;
-height: 1px;
-background-color: #ddd;
-position: absolute;
-top: 50%;
-margin-top: -1px;
-left: -70%;
-opacity: 0;
--webkit-transition: all 1s;
-transition: all 1s;
-}
-*/
 body .header-menu-nav-folder .header-menu-cta {
     display: flex;
     justify-content: left;
@@ -1294,11 +1141,18 @@ body .header-menu-nav-wrapper .header-menu-nav-item a:hover .header-menu-nav-ite
     }
 
     .header-title-nav-wrapper {
-        margin-left: 0;
+        position: absolute;
+        left: 55px;
     }
 
     .header-actions.header-actions--right {
         position: absolute;
         right: 10px;
     }
+}
+
+/* home loading top section */
+.fe-block-3126f379f0129b9c0517 {
+  height: 100%;
+  background-color: #141625;
 }
