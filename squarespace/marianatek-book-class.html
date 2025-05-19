@@ -1,0 +1,35 @@
+<script>
+    function updateLocations() {
+        const location48751 = document.getElementById('location48751').checked;
+        const location48717 = document.getElementById('location48717').checked;
+        const locationDiv = document.querySelector('[data-mariana-integrations]');
+
+        const locations = [];
+        if (location48751) locations.push('48751');
+        if (location48717) locations.push('48717');
+
+        const locationString = `/schedule/daily/48541?locations=${locations.join(',')}`;
+        locationDiv.setAttribute('data-mariana-integrations', locationString);
+        reloadMarianaIntegration(locationDiv);
+    }
+
+    function reloadMarianaIntegration(div) {
+        // Clone the div to trigger Mariana Tek's integration
+        const newDiv = div.cloneNode(true);
+        div.parentNode.replaceChild(newDiv, div);
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        updateLocations();
+    });
+</script>
+
+<label>
+    <input type="checkbox" id="location48751" onchange="updateLocations()"> Location 48751
+</label>
+<label>
+    <input type="checkbox" id="location48717" onchange="updateLocations()"> Location 48717
+</label>
+
+<div data-mariana-integrations="/schedule/daily/48541?locations=48751"></div>
