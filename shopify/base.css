@@ -3599,28 +3599,33 @@ details-disclosure > details {
   }
 }
 
-/* card scroll */
-.image-scroll-container {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* marquee text */
+.container-marquee-verso {
+  background-color: #EB009B;
+  color: #fff;
+  letter-spacing: 3px;
+  padding-top: 8px;
+  padding-bottom: 8px; 
 }
 
-.image-scroll {
+.scrolling-content {
+    text-align: start;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    user-select: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.scrolling-content__item {
+  flex-shrink: 0;
+  align-items: center;
   display: flex;
-  transition: transform 0.3s ease-in-out;
+  column-gap: 35px;
 }
 
-.image-scroll:hover {
-  animation: autoScroll 4s linear infinite;
+.scrolling-content__item > * {
+    margin-inline-start: calc(var(--scrolling-content-content-gap) / 2);
+    margin-inline-end: calc(var(--scrolling-content-content-gap) / 2);
 }
-
-@keyframes autoScroll {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-25%); }
-  50% { transform: translateX(-50%); }
-  75% { transform: translateX(-75%); }
-  100% { transform: translateX(0); }
-}
-/* end card scroll */
