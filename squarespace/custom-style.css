@@ -6,7 +6,6 @@
 
 /**
  * License       : < https://tinyurl.com/s872fb68 >
- *
  * Version       : 0.8.0
  * SS Version    : 7.1
  * 
@@ -18,13 +17,16 @@
  * By : Thomas Creedon < http://www.tomsWeb.consulting/ >
  */
 
- /**
-  * ======================================================================================
-  */
-
+/**
+ * ======================================================================================
+ */
 :root {
     --gap: 0.5rem;
 }
+
+/**
+ * ======================================================================================
+ */
 
 /**
  * CUSTOM FONT -- Adobe Typekit
@@ -39,10 +41,6 @@
 }
 
 .tk-alternate-gothic-no-2-d { font-family: "alternate-gothic-no-2-d",sans-serif !important; }
-
- /**
-  * ======================================================================================
-  */
 
 /* Using the same font family for all headings (h1-h6) */
 h1 {
@@ -87,7 +85,6 @@ fieldset,
     font-family: "proxima-nova-condensed", "Helvetica Neue Condensed", "Arial Narrow", Helvetica, Arial, sans-serif !important;
 }
 
-
 /* Specific text containers or utility classes that require the font */
 .navbar, .footer, .sidebar, .text-small, .text-large {
     font-family: "proxima-nova-condensed", "Helvetica Neue Condensed", "Arial Narrow", Helvetica, Arial, sans-serif !important;
@@ -99,8 +96,12 @@ a {
 }
 
  /**
-  * ======================================================================================
-  */
+ * ======================================================================================
+ */
+
+ /**
+ * MISC CSS
+ */
 
 #siteWrapper .header .header-actions-action--cta .sqs-button-element--primary {
     align-self: center;
@@ -1125,7 +1126,18 @@ body .header-menu-nav-wrapper .header-menu-nav-item a:hover .header-menu-nav-ite
     background-color: #141625;
 }
 
-/* fixes the bunching of the navigation bar for medium sizes */
+ /**
+ * ======================================================================================
+ */
+
+/**
+ * Contributions by : Prita Hasjim < https://www.pritahasjim.com >
+ *                                 < https://github.com/phasjim >
+ */
+
+/**
+ * FIX: Navigation between 800px - 1065px
+ */
 @media (min-width: 800px) and (max-width: 1065px) {
     .header-title-logo {
         align-items: flex-start;
@@ -1148,13 +1160,17 @@ body .header-menu-nav-wrapper .header-menu-nav-item a:hover .header-menu-nav-ite
     }
 }
 
-/* home loading top section */
+/**
+ * HOME LOADING OPTIMIZATION
+ */
 .fe-block-3126f379f0129b9c0517 {
   height: 100%;
   background-color: #141625;
 }
 
-/* program overlay */
+/**
+ * PROGRAM OVERLAY
+ */
 .image-wrapper {
   position: relative;
   display: inline-block;
@@ -1165,7 +1181,6 @@ body .header-menu-nav-wrapper .header-menu-nav-item a:hover .header-menu-nav-ite
   width: 100%;
   height: auto;
 }
-
 
 .prog-overlay {
   position: absolute;
