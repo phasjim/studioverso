@@ -1,61 +1,55 @@
-/*
+/**
+ * Main Contributor : Prita Hasjim < https://www.pritahasjim.com >
+ *                                 < https://github.com/phasjim >
+ * Note             : On mobile at 575px and below the orientation is forced to column
+ */
 
-License       : < https://tinyurl.com/s872fb68 >
+/**
+ * License       : < https://tinyurl.com/s872fb68 >
+ *
+ * Version       : 0.8.0
+ * SS Version    : 7.1
+ * 
+ * Fluid
+ * Engine
+ * Compatible    : Not Applicable
+ * 
+ * Dependencies  : LESS
+ * By : Thomas Creedon < http://www.tomsWeb.consulting/ >
+ */
 
-Version       : 0.8.0
-SS Version    : 7.1
-
-Fluid
-Engine
-Compatible    : Not Applicable
-
-Dependencies  : LESS
-
-Note          : on mobile at 575px and below the orientation is forced to column
-
-Modified By   : Prita Hasjim < https://www.pritahasjim.com >
-                             < https://github.com/phasjim >
-
-Originally By : Thomas Creedon < http://www.tomsWeb.consulting/ >
-*/
+ /**
+  * ======================================================================================
+  */
 
 :root {
     --gap: 0.5rem;
 }
 
-
-/*
- CUSTOM FONT
+/**
+ * CUSTOM FONT -- Adobe Typekit
  */
-@font-face {
-    font-family: "Alternate Gothic No2 D";
-    src: url("https://cdn.jsdelivr.net/gh/phasjim/studioverso@main/fonts/alternate-gothic-web/Alternate%20Gothic%20No2%20D%20Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
+
+ /* Source: https://use.typekit.net/vlj0qlo.css */
 
 @font-face {
-    font-family: alternate-gothic-condensed-a;
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+    font-family:"alternate-gothic-no-2-d";
+    src:url("https://use.typekit.net/af/1a70db/000000000000000077359df8/30/l?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/1a70db/000000000000000077359df8/30/d?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/1a70db/000000000000000077359df8/30/a?primer=f592e0a4b9356877842506ce344308576437e4f677d7c9b78ca2162e6cad991a&fvd=n4&v=3") format("opentype") !important;
+    font-display:optional;font-style:normal;font-weight:400;font-stretch:normal;
 }
 
-@font-face {
-    font-family: "Gesta";
-    src: url("https://cdn.jsdelivr.net/gh/phasjim/studioverso@main/fonts/gesta-web/gesta.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
+.tk-alternate-gothic-no-2-d { font-family: "alternate-gothic-no-2-d",sans-serif !important; }
+
+ /**
+  * ======================================================================================
+  */
 
 /* Using the same font family for all headings (h1-h6) */
 h1 {
-    font-family: "alternate-gothic-condensed-a", "Arial Narrow", sans-serif, !important;
+    font-family: "alternate-gothic-no-2-d", "Helvetica Neue Condensed", "Arial Narrow", sans-serif, !important;
 }
 h2, h3, h4, h5, h6 {
-    font-family: "Alternate Gothic No2 D", "Arial Narrow", sans-serif, !important;
+    font-family: "alternate-gothic-no-2-d", "Helvetica Neue Condensed", "Arial Narrow", sans-serif, !important;
 }
 
 /* Using the same font family for paragraph, large and small text elements, and buttons */
@@ -78,7 +72,7 @@ strong,
 em,
 dt,
 dd {
-    font-family: "Gesta", Helvetica, Arial, sans-serif !important;
+    font-family: "proxima-nova-condensed", "Helvetica Neue Condensed", "Arial Narrow", Helvetica, Arial, sans-serif !important;
 }
 
 /* Additional elements that might need the font settings */
@@ -90,20 +84,23 @@ option,
 legend,
 fieldset,
 .caption-text {
-    font-family: "Gesta", Helvetica, Arial, sans-serif !important;
+    font-family: "proxima-nova-condensed", "Helvetica Neue Condensed", "Arial Narrow", Helvetica, Arial, sans-serif !important;
 }
 
 
 /* Specific text containers or utility classes that require the font */
 .navbar, .footer, .sidebar, .text-small, .text-large {
-    font-family: "Gesta", Helvetica, Arial, sans-serif;
+    font-family: "proxima-nova-condensed", "Helvetica Neue Condensed", "Arial Narrow", Helvetica, Arial, sans-serif !important;
 }
 
 /* Ensure links also carry the custom font */
 a {
-    font-family: "Gesta", Helvetica, Arial, sans-serif;
+    font-family: "proxima-nova-condensed", "Helvetica Neue Condensed", "Arial Narrow", Helvetica, Arial, sans-serif !important;
 }
 
+ /**
+  * ======================================================================================
+  */
 
 #siteWrapper .header .header-actions-action--cta .sqs-button-element--primary {
     align-self: center;
