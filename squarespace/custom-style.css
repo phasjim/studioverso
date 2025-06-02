@@ -1205,3 +1205,18 @@ body .header-menu-nav-wrapper .header-menu-nav-item a:hover .header-menu-nav-ite
 .image-wrapper:hover .prog-overlay {
   opacity: 1;
 }
+
+/**
+ * VERTICAL LINE
+ * 
+ * Source: https://www.bigcatcreative.com/blog/vertical-line-squarespace
+ */
+
+@media screen and (min-width: 768px) {
+    .vertical-line {
+        background: rgba(20,22,37,0.15);
+        width: 1px;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
