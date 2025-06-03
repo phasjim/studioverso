@@ -61,17 +61,19 @@ body{
     overflow-y: scroll;
     display: none;
 }
-.navbar-nav > li > a{
+.navbar-nav > li > a {
+    cursor: pointer;
+    align-items: center;
     text-transform: uppercase;
     font-size: 1.1rem;
     font-weight: 700;
-    display: block;
-    padding: 0.6rem 0;
-    margin: 0.2rem 0;
+    display: flex;
+    margin: 1rem 2rem;
     border-bottom: 1px solid #ddd;
     border-radius: 1px;
     position: relative;
     transition: all 0.4s ease;
+    justify-content: center;
 }
 .drop-icon{
     position: absolute;
@@ -98,8 +100,9 @@ body{
     transition: all 0.5s ease;
 }
 .sub-menu ul li a:hover{
-    padding-left: 14px;
-    opacity: 0.9;
+    text-decoration: underline; /* TODO: think of better transition */
+    /* padding-left: 14px; */
+    /* opacity: 0.9; */
 }
 .sub-menu{
     display: none;
@@ -108,7 +111,7 @@ body{
 .sub-menu-item{
     padding-left: 1.2rem;
 }
-.sub-menu-item:nth-child(3){
+/* .sub-menu-item:nth-child(3){
     background: #ddd;
     display: flex;
     flex-direction: column;
@@ -116,12 +119,12 @@ body{
     align-items: flex-start;
     padding-top: 2rem;
     padding-bottom: 2rem;
-}
-.sub-menu-item:nth-child(3) h2{
+} */
+/* .sub-menu-item:nth-child(3) h2{
     text-transform: capitalize;
     margin: 1.5rem 0;
-}
-.sub-menu-item:nth-child(3) .btn{
+} */
+/* .sub-menu-item:nth-child(3) .btn{
     border: 1px solid #000;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -139,7 +142,7 @@ body{
     width: 50%;
     margin: 0 auto;
     padding: 2rem 0;
-}
+} */
 
 /* header */
 .header{
@@ -196,7 +199,7 @@ body{
         display: none;
     }
     .brand-and-icon{
-        flex: 0 0 100px;
+        flex: 0 0 190px;
         border-bottom: none;
         padding: 0;
     }
@@ -208,12 +211,13 @@ body{
     .navbar-nav{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        margin-left: 5rem;
     }
     .navbar-nav > li > a{
         border-bottom: none;
-        margin: 0 0.4rem;
-        padding: 1.7rem 1.8rem 1.7rem 0.8rem;
+        /* margin: 0 0.4rem; */
+        /* padding: 1.7rem 1.8rem 1.7rem 0.8rem; */
         font-size: 0.8rem;
     }
     .sub-menu{
@@ -225,8 +229,8 @@ body{
     }
     .navbar-nav > li:hover .sub-menu{
         display: grid!important;
-        grid-template-columns: repeat(4, 1fr);
-        padding: 0 5rem;
+        grid-template-columns: repeat(6, 1fr);
+        padding: 25px 5rem;
     }
     .navbar-nav > li{
         border-bottom: 2px solid transparent;
