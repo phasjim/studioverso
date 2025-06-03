@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Custom Studio Dropdown</title>
+<style>
+  .dropdown-container {
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .custom-dropdown {
+    position: relative;
+    width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .custom-dropdown .selected {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .custom-dropdown .selected::after {
+    content: '';
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  .custom-dropdown.active .selected::after {
+    transform: rotate(-135deg);
+  }
+
+  .custom-dropdown .dropdown-list {
+    display: none;
+    color: #141625;
+    border: 2px solid #141625;
+    position: absolute;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    margin-top: 10px;
+    z-index: 1000;
+  }
+
+  .custom-dropdown .dropdown-list div {
+    padding: 1rem;
+    transition: background 0.3s;
+  }
+
+  .custom-dropdown .dropdown-list div:hover {
+    background: rgba(20, 22, 37, 0.1);
+    border-radius: 10px;
+  }
+
+  /* Checkmark style */
+  .custom-dropdown .dropdown-list div.selected-option::after {
+    content: '✔';
+    float: right;
+    color: #EC008B;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="dropdown-container">
+  <div class="custom-dropdown" id="customDropdown">
+    <div class="selected">Select Location</div>
+    <div class="dropdown-list">
+      <div class="first" data-value="48717">St. John's</div>
+      <div data-value="48751">Mount Pearl</div>
+      <div class="last" data-value="all">All Studios</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const dropdown = document.getElementById("customDropdown");
+    const selected = dropdown.querySelector(".selected");
+    const list = dropdown.querySelector(".dropdown-list");
+    const options = dropdown.querySelectorAll(".dropdown-list div");
+
+    let lastUrl = window.location.href;
+
+    // Toggle dropdown
+    selected.addEventListener("click", () => {
+      dropdown.classList.toggle("active");
+      list.style.display = dropdown.classList.contains("active") ? "block" : "none";
+    });
+
+    // Option click
+    options.forEach(option => {
+      option.addEventListener("click", () => {
+        const selectedText = option.textContent;
+        const selectedValue = option.dataset.value;
+
+        // Remove selected-option from all
+        options.forEach(o => o.classList.remove("selected-option"));
+        // Add to clicked
+        option.classList.add("selected-option");
+
+        selected.textContent = selectedText;
+        dropdown.classList.remove("active");
+        list.style.display = "none";
+        updateLocationParam(selectedValue);
+      });
+    });
+
+    // Close dropdown if click outside
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+        list.style.display = "none";
+      }
+    });
+
+    // Update URL param logic with full page reload
+    function updateLocationParam(locationValue) {
+      const url = new URL(window.location.href);
+      const searchParams = new URLSearchParams(url.search);
+      const mtValue = searchParams.get("_mt");
+
+      if (mtValue) {
+        const decodedMtValue = decodeURIComponent(mtValue);
+        const mtUrl = new URL(decodedMtValue, window.location.origin);
+        const mtParams = new URLSearchParams(mtUrl.search);
+
+        if (locationValue === "all") {
+          mtParams.delete("locations");
+        } else {
+          mtParams.set("locations", locationValue);
+        }
+
+        searchParams.set("_mt", encodeURIComponent(`${mtUrl.pathname}?${mtParams.toString()}`));
+      } else {
+        if (locationValue !== "all") {
+          searchParams.set("_mt", `/schedule/daily/48541?locations=${locationValue}`);
+        } else {
+          searchParams.set("_mt", `/schedule/daily/48541`);
+        }
+      }
+
+      url.search = searchParams.toString();
+      // Full page reload so content refreshes:
+      window.location.href = url.toString();
+    }
+
+    // Update dropdown selection based on URL
+    function updateSelectedFromUrl() {
+      const url = new URL(window.location.href);
+      const searchParams = new URLSearchParams(url.search);
+      const mtValue = searchParams.get("_mt");
+
+      let currentLocations = null;
+
+      if (mtValue) {
+        const decodedMtValue = decodeURIComponent(mtValue);
+        const mtUrl = new URL(decodedMtValue, window.location.origin);
+        const mtParams = new URLSearchParams(mtUrl.search);
+        currentLocations = mtParams.get("locations");
+      } else {
+        currentLocations = searchParams.get("locations");
+      }
+
+      if (!currentLocations || currentLocations === "") {
+        selected.textContent = "All Studios";
+        highlightOption("all");
+        return;
+      }
+
+      const locationsList = currentLocations.split(",");
+
+      if (locationsList.includes("48717") && locationsList.includes("48751")) {
+        selected.textContent = "All Studios";
+        highlightOption("all");
+      } else if (locationsList.includes("48717")) {
+        selected.textContent = "St. John's";
+        highlightOption("48717");
+      } else if (locationsList.includes("48751")) {
+        selected.textContent = "Mount Pearl";
+        highlightOption("48751");
+      } else {
+        selected.textContent = "All Studios";
+        highlightOption("all");
+      }
+    }
+
+    // Helper function to highlight the option
+    function highlightOption(value) {
+      options.forEach(o => {
+        if (o.dataset.value === value) {
+          o.classList.add("selected-option");
+        } else {
+          o.classList.remove("selected-option");
+        }
+      });
+    }
+
+    // Watch for URL changes
+    setInterval(() => {
+      if (window.location.href !== lastUrl) {
+        lastUrl = window.location.href;
+        updateSelectedFromUrl();
+      }
+    }, 500);
+
+    // Initial selection on page load
+    updateSelectedFromUrl();
+  });
+</script>
+
+</body>
+</html>
