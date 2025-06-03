@@ -64,9 +64,38 @@
 	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
 		U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
 		U+2C60-2C7F, U+A720-A7FF;
-}</style></head>
+}</style>
+
+  <!-- ======================================== -->
+  <!-- ============== NAVBAR STYLES =========== -->
+  <!-- ======================================== -->
+  <!-- Google Material -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 200,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+
+  <!-- Adobe Fonts-->
+  <link rel="preload" href="https://use.typekit.net/byf5spa.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://use.typekit.net/vlj0qlo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Fallback for browsers with JavaScript disabled -->
+  <noscript>
+      <link rel="stylesheet" href="https://use.typekit.net/byf5spa.css">
+  </noscript>
+  <link rel="stylesheet" href="https://use.typekit.net/byf5spa.css">
+
+  </head>
   <body data-new-gr-c-s-check-loaded="14.1238.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1238.0" class="vsc-initialized">
 
+    <!-- ======================================== -->
+    <!-- ================= NAVBAR =============== -->
+    <!-- ======================================== -->
     <div class="main-wrapper">
       <nav class="navbar">
         <div class="brand-and-icon">
@@ -78,18 +107,19 @@
           </button>
         </div>
 
+        <!-- ======================================== -->
+        <!-- ================ STUDIOS =============== -->
+        <!-- ======================================== -->
         <div class="navbar-collapse" style="display: none;">
           <ul class="navbar-nav">
             <li>
               <a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#" class="menu-link">
-                Studios
-                <span class="drop-icon">
-                  <i class="fas fa-chevron-down"></i>
-                </span>
+                <i class="material-symbols-outlined">bolt</i>
+                <span class="sv-nav-main-item">&ensp;Studios</span>
               </a>
               <div class="sub-menu" style="display: none;">
                 <!-- item -->
-                <div class="sub-menu-item">
+                <div class="sub-menu-item right-divider">
                   <h4>Locations</h4>
                   <ul>
                     <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">St. John's</a></li>
@@ -101,19 +131,19 @@
                 <div class="sub-menu-item">
                   <h4>Programs</h4>
                   <ul>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Barre</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Pilates</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Spin</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Train</a></li>
+                    <li><a href="https://www.studioverso.ca/barre">Barre</a></li>
+                    <li><a href="https://www.studioverso.ca/pilates">Pilates</a></li>
+                    <li><a href="https://www.studioverso.ca/spin">Spin</a></li>
+                    <li><a href="https://www.studioverso.ca/train">Train</a></li>
                   </ul>
                 </div>
-                <div class="sub-menu-item">
+                <div class="sub-menu-item right-divider">
                   <h4>&emsp;</h4>
                   <ul>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Row</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Pilates</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Spin</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Train</a></li>
+                    <li><a href="https://www.studioverso.ca/row">Row</a></li>
+                    <li><a href="https://www.studioverso.ca/yoga">Yoga</a></li>
+                    <li style="width:115%;"><a href="https://www.studioverso.ca/recovery">Recovery</a></li>
+                    <li style="width:115%;"><a href="https://www.studioverso.ca/baby-and-me">Baby + Me</a></li>
                   </ul>
                 </div>
                 <!-- end of item -->
@@ -122,8 +152,8 @@
                   <h4>Experience</h4>
                   <ul>
                     <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Instructors</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Adapted Programming</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Private Events + Corporate Rates</a></li>
+                    <li style="width: 165%;"><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Adapted Programming</a></li>
+                    <li style="width: 165%;"><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Private Events + Corporate Rates</a></li>
                     <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">VERSŌ Gives</a></li>
                     <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">FAQ</a></li>
                   </ul>
@@ -132,55 +162,36 @@
               </div>
             </li>
 
+            <!-- ======================================== -->
+            <!-- ================= SHOP ================= -->
+            <!-- ======================================== -->
             <li>
               <a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#" class="menu-link">
-                Shop
-                <span class="drop-icon">
-                  <i class="fas fa-chevron-down"></i>
-                </span>
+                <i class="material-symbols-outlined">local_mall</i>
+                <span class="sv-nav-main-item">&ensp;Shop</span>
               </a>
               <div class="sub-menu" style="display: none;">
                 <!-- item -->
                 <div class="sub-menu-item">
-                  <h4>top categories</h4>
+                  <h4>VERSŌ Wear</h4>
                   <ul>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">men's clothing</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">women's clothing</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">men's shoes</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">women's shoes</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">clothing deals</a></li>
+                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Apparel</a></li>
+                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Accessories</a></li>
+                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Sale</a></li>
+                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">Shop All</a></li>
                   </ul>
-                </div>
-                <!-- end of item -->
-                <!-- item -->
-                <div class="sub-menu-item">
-                  <h4>other categories</h4>
-                  <ul>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">fine jewelry</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">fashion jewelry</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">men's accessories</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">handbags &amp; bags</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">kid's clothing</a></li>
-                  </ul>
-                </div>
-                <!-- end of item -->
-                <!-- item -->
-                <div class="sub-menu-item">
-                  <h2>stylish and modern fashion clothing</h2>
-                  <button type="button" class="btn">shop here</button>
-                </div>
-                <!-- end of item -->
-                <!-- item -->
-                <div class="sub-menu-item">
-                  <img src="./menu_files/cloth.png" alt="product image">
                 </div>
                 <!-- end of item -->
               </div>
             </li>
 
+            <!-- ======================================== -->
+            <!-- ============== ON-DEMAND =============== -->
+            <!-- ======================================== -->
             <li>
               <a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#" class="menu-link">
-                On Demand
+                <i class="material-symbols-outlined">play_circle</i>
+                <span class="sv-nav-main-item">&ensp;On Demand</span>
                 <span class="drop-icon">
                   <i class="fas fa-chevron-down"></i>
                 </span>
@@ -188,37 +199,13 @@
               <div class="sub-menu" style="display: none;">
                 <!-- item -->
                 <div class="sub-menu-item">
-                  <h4>top categories</h4>
+                  <h4>Text</h4>
                   <ul>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">makeup</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">health care</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">fragrance</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">hair care &amp; stylings</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">manicure &amp; pedicure</a></li>
+                    <li><a href="">Text</a></li>
+                    <li><a href="">Text</a></li>
+                    <li><a href="">Text</a></li>
+                    <li><a href="">Text</a></li>
                   </ul>
-                </div>
-                <!-- end of item -->
-                <!-- item -->
-                <div class="sub-menu-item">
-                  <h4>other categories</h4>
-                  <ul>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">skin care</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">vitamins</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">vision care</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">oral care</a></li>
-                    <li><a href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#">shaving &amp; hair removal</a></li>
-                  </ul>
-                </div>
-                <!-- end of item -->
-                <!-- item -->
-                <div class="sub-menu-item">
-                  <h2>the latest product is here</h2>
-                  <button type="button" class="btn">shop here</button>
-                </div>
-                <!-- end of item -->
-                <!-- item -->
-                <div class="sub-menu-item">
-                  <img src="./menu_files/gymn.png" alt="product image">
                 </div>
                 <!-- end of item -->
               </div>
@@ -228,6 +215,10 @@
         </div>
       </nav>
     </div>
+
+
+
+
 
     <section class="header">
       <h2>Modern Dropdown Mega Menu Example</h2>
