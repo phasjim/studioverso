@@ -111,17 +111,16 @@
               const chevron = item.querySelector('.chevron');
 
               if (submenu && submenu.classList.contains('sub-menu')) {
-                // CLOSE ALL submenus first
+                const isOpen = submenu.style.display === 'block';
+
+                // Close all submenus and reset all chevrons
                 const allSubmenus = document.querySelectorAll('.sub-menu');
                 const allChevrons = document.querySelectorAll('.chevron');
                 allSubmenus.forEach(sm => sm.style.display = 'none');
                 allChevrons.forEach(ch => ch.classList.remove('rotate'));
 
                 // Toggle the clicked submenu and chevron
-                if (submenu.style.display === 'block') {
-                  submenu.style.display = 'none';
-                  if (chevron) chevron.classList.remove('rotate');
-                } else {
+                if (!isOpen) {
                   submenu.style.display = 'block';
                   if (chevron) chevron.classList.add('rotate');
                 }
