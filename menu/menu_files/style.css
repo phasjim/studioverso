@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,8 +8,8 @@ body {
   line-height: 1.4;
 }
 
-.navbar,
-.navbar * {
+.sv-navbar,
+.sv-navbar * {
   user-select: none;
 }
 
@@ -26,7 +24,7 @@ body {
 .main-wrapper ul li {
   list-style-type: none;
 }
-.navbar {
+.sv-navbar {
   background: #fafafa;
   padding: 0 1rem;
   position: fixed;
@@ -52,12 +50,12 @@ body {
   padding: 1rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 }
-.navbar-brand {
+.sv-navbar-brand {
   font-size: 1.8rem;
   letter-spacing: 3px;
   font-weight: 700;
 }
-.navbar-toggler {
+.sv-navbar-toggler {
   display: block;
   border: none;
   background: transparent;
@@ -101,17 +99,17 @@ body {
   transform: rotate(-45deg) translate(8px, -8px);
 }
 
-.navbar-toggler:hover {
+.sv-navbar-toggler:hover {
   opacity: 0.7;
 }
 .no-scroll {
   overflow: hidden; /* disables background page scroll */
 }
-.navbar-collapse {
+.sv-navbar-collapse {
   overflow-y: scroll;
   display: none;
 }
-.navbar-nav > li > a {
+.sv-navbar-nav > li > a {
   cursor: pointer;
   align-items: center;
   text-transform: uppercase;
@@ -125,7 +123,7 @@ body {
   transition: all 0.4s ease;
   justify-content: center;
 }
-.navbar-nav > li > a .sv-nav-main-item {
+.sv-navbar-nav > li > a .sv-nav-main-item {
   font-weight: 200;
   font-size: 1.25em;
   letter-spacing: 1px;
@@ -136,7 +134,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-.navbar-nav > li > a:hover {
+.sv-navbar-nav > li > a:hover {
   opacity: 0.7;
 }
 .sub-menu h4 {
@@ -233,7 +231,7 @@ body {
 
 /* Media Queries */
 @media (max-width: 1070px) {
-  .navbar {
+  .sv-navbar {
     align-items: center;
     padding: 0 2rem;
   }
@@ -242,19 +240,19 @@ body {
     flex: 0 0 130px;
   }
 
-  .navbar-nav {
+  .sv-navbar-nav {
     margin-left: 0;
   }
 }
 
 /* toggle / mobile menu */
 @media (max-width: 974px) {
-  .navbar {
+  .sv-navbar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.075) !important;
     height: 61px !important;
   }
 
-  .navbar-nav {
+  .sv-navbar-nav {
     background-color: #f8f8f8;
     overflow-y: auto;
     overflow-x: clip;
@@ -266,7 +264,7 @@ body {
     border-top: 1px solid rgba(0, 0, 0, 0.075);
   }
 
-  .navbar-nav > li > a {
+  .sv-navbar-nav > li > a {
     margin: 0 !important;
     padding: 1.2rem 1.35rem 1.2rem 1.2rem !important;
     border-top: 1px solid rgba(0, 0, 0, 0.075);
@@ -299,15 +297,15 @@ body {
     display: none !important;
   }
 
-  .navbar-nav > li > a {
+  .sv-navbar-nav > li > a {
     transition: all 0.4s ease;
   }
 
-  .navbar-nav > li > a:hover {
+  .sv-navbar-nav > li > a:hover {
     background-color: #f0f0f0;
   }
 
-  .navbar-nav > li.sv-book-classes > a:hover {
+  .sv-navbar-nav > li.sv-book-classes > a:hover {
     background-color: #ec008b; /* TODO: prita */
   }
 
@@ -317,7 +315,7 @@ body {
 }
 
 @media screen and (min-width: 975px) {
-  .navbar-toggler {
+  .sv-navbar-toggler {
     display: none;
   }
   .brand-and-icon {
@@ -325,18 +323,18 @@ body {
     border-bottom: none;
     padding: 0;
   }
-  .navbar-collapse {
+  .sv-navbar-collapse {
     display: block !important;
     overflow-y: hidden;
     flex: 1 0 auto;
   }
-  .navbar-nav {
+  .sv-navbar-nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-left: 3rem;
   }
-  .navbar-nav > li > a {
+  .sv-navbar-nav > li > a {
     border-bottom: none;
     font-size: 0.8rem;
   }
@@ -348,16 +346,16 @@ body {
     background: #f8f8f8;
     padding-bottom: 35px !important;
   }
-  .navbar-nav > li:hover .sub-menu {
+  .sv-navbar-nav > li:hover .sub-menu {
     display: grid !important;
     grid-template-columns: repeat(6, 1fr);
     padding: 25px 5rem;
   }
-  .navbar-nav > li {
+  .sv-navbar-nav > li {
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.4s ease;
   }
-  .navbar-nav > li:hover {
+  .sv-navbar-nav > li:hover {
     border-bottom-color: #141625;
   }
   .sub-menu-item {
@@ -458,7 +456,7 @@ body {
 }
 
 /* Hide the overlay by default */
-.overlay {
+.sv-overlay {
   position: fixed;
   top: 0;
   left: 0;

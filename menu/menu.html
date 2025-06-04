@@ -10,22 +10,16 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./menu_files/style.css" />
-    <!-- Font awesome -->
-    <!-- <link
-      rel="stylesheet"
-      href="./menu_files/all.min.css"
-      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-      crossorigin="anonymous"
-    /> -->
-    <!-- <script type="text/javascript" async="" src="./menu_files/ga.js"></script> -->
-    <!-- <script
-      type="text/javascript"
-      src="./menu_files/d3TeghDYkUbkozoo7e-71hLT4sX3JDOtF5YmJqYYqdZqu3F1j6UU4lzk1GWNZYoGfqYs9sYMZtScS9ReF3Yj2Q=="
-    ></script> -->
+
 
     <!-- ======================================== -->
-    <!-- ============== NAVBAR STYLES =========== -->
+    <!-- Navigation by:  Prita Hasjim             -->
+    <!--                 hello@pritahasjim.com    -->
+    <!--                 www.pritahasjim.com      -->
     <!-- ======================================== -->
+    <style>
+
+    </style>
     <!-- Google Material -->
     <link
       rel="stylesheet"
@@ -60,12 +54,12 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const menuIcon = document.getElementById('menuIcon');
-        const navbarCollapse = document.getElementById('navbarCollapse');
-        const menuOverlay = document.getElementById('menuOverlay');
+        const sv-navbarCollapse = document.getElementById('sv-navbarCollapse');
+        const svMenuOverlay = document.getElementById('svMenuOverlay');
 
         function openMenu() {
-          navbarCollapse.style.display = 'block';
-          menuOverlay.style.display = 'block';
+          sv-navbarCollapse.style.display = 'block';
+          svMenuOverlay.style.display = 'block';
           menuIcon.classList.add('active');
 
           // Disable body scroll
@@ -73,8 +67,8 @@
         }
 
         function closeMenu() {
-          navbarCollapse.style.display = 'none';
-          menuOverlay.style.display = 'none';
+          sv-navbarCollapse.style.display = 'none';
+          svMenuOverlay.style.display = 'none';
           menuIcon.classList.remove('active');
 
           // Enable body scroll
@@ -89,7 +83,7 @@
 
         // Main menu icon click
         menuIcon.addEventListener('click', () => {
-          if (navbarCollapse.style.display === 'block') {
+          if (sv-navbarCollapse.style.display === 'block') {
             closeMenu();
           } else {
             openMenu();
@@ -97,7 +91,7 @@
         });
 
         // Clicking on overlay closes everything
-        menuOverlay.addEventListener('click', () => {
+        svMenuOverlay.addEventListener('click', () => {
           closeMenu();
         });
 
@@ -141,15 +135,15 @@
     <!-- ================= NAVBAR =============== -->
     <!-- ======================================== -->
     <div class="main-wrapper">
-      <nav class="navbar">
+      <nav class="sv-navbar">
         <div class="brand-and-icon">
-          <a href="https://www.studioverso.ca" class="navbar-brand">
+          <a href="https://www.studioverso.ca" class="sv-navbar-brand">
             <img
               src="https://images.squarespace-cdn.com/content/v1/659ffd5acc33bf3dd5158e2d/1704983965918-ID3E8OFU3KP4KWDIGLRQ/STUDIO-VERSO%CC%84-LOGO-%28Website%29.png"
               alt="STUDIO VERSŌ"
             />
           </a>
-          <button type="button" class="navbar-toggler">
+          <button type="button" class="sv-navbar-toggler">
             <!-- three bars menu or "x" -->
             <div class="menu-icon" id="menuIcon">
               <span></span>
@@ -162,8 +156,8 @@
         <!-- ======================================== -->
         <!-- ================ STUDIOS =============== -->
         <!-- ======================================== -->
-        <div class="navbar-collapse" id="navbarCollapse" style="display: none">
-          <ul class="navbar-nav">
+        <div class="sv-navbar-collapse" id="sv-navbarCollapse" style="display: none">
+          <ul class="sv-navbar-nav">
             <li>
               <a href="https://www.studioverso.ca/" class="menu-link sv-menu-prevent-default">
                 <i class="material-symbols-outlined">bolt</i>
@@ -367,7 +361,7 @@
         </div>
       </nav>
     </div>
-    <div id="menuOverlay" class="overlay"></div>
+    <div id="svMenuOverlay" class="sv-overlay"></div>
 
     <section class="header">
       <h2>STUDIO VERSŌ</h2>
