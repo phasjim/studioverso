@@ -57,20 +57,37 @@
     <link rel="stylesheet" href="https://use.typekit.net/byf5spa.css" />
 
     <!-- Navbar animations -->
-     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
         const menuIcon = document.getElementById('menuIcon');
         const navbarCollapse = document.getElementById('navbarCollapse');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        // Function to open menu
+        function openMenu() {
+          navbarCollapse.style.display = 'block';
+          menuOverlay.style.display = 'block';
+          menuIcon.classList.add('active');
+        }
+
+        // Function to close menu and ALL submenus
+        function closeMenu() {
+          navbarCollapse.style.display = 'none';
+          menuOverlay.style.display = 'none';
+          menuIcon.classList.remove('active');
+
+          // Close all submenus
+          const allSubmenus = document.querySelectorAll('.sub-menu');
+          allSubmenus.forEach(sm => {
+            sm.style.display = 'none';
+          });
+        }
 
         menuIcon.addEventListener('click', () => {
-          // Toggle active class for animation
-          menuIcon.classList.toggle('active');
-
-          // Toggle navbar-collapse display
           if (navbarCollapse.style.display === 'block') {
-            navbarCollapse.style.display = 'none';
+            closeMenu();
           } else {
-            navbarCollapse.style.display = 'block';
+            openMenu();
 
             // Dealing with submenus
             const menuItems = document.querySelectorAll('.sv-menu-prevent-default');
@@ -82,6 +99,15 @@
                   const submenu = item.nextElementSibling;
 
                   if (submenu && submenu.classList.contains('sub-menu')) {
+                    // CLOSE ALL submenus first
+                    const allSubmenus = document.querySelectorAll('.sub-menu');
+                    allSubmenus.forEach(sm => {
+                      if (sm !== submenu) {
+                        sm.style.display = 'none';
+                      }
+                    });
+
+                    // Toggle the clicked submenu
                     if (submenu.style.display === 'block') {
                       submenu.style.display = 'none';
                     } else {
@@ -92,6 +118,11 @@
               });
             });
           }
+        });
+
+        // Clicking on overlay closes everything
+        menuOverlay.addEventListener('click', () => {
+          closeMenu();
         });
       });
     </script>
@@ -330,6 +361,7 @@
         </div>
       </nav>
     </div>
+    <div id="menuOverlay" class="overlay"></div>
 
     <section class="header">
       <h2>STUDIO VERSŌ</h2>

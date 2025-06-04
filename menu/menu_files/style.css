@@ -44,6 +44,7 @@ body {
   border-bottom: 1px solid #ddd;
   position: relative;
   padding: 0 3rem;
+  z-index: 10000;
 }
 .brand-and-icon {
   display: flex;
@@ -233,10 +234,12 @@ body {
   }
 }
 
+/* toggle / mobile menu */
 @media (max-width: 974px) {
   .navbar-nav {
     background-color: #f8f8f8;
     overflow-y: hidden;
+    overflow-x: clip;
     position: absolute;
     left: 0;
     top: 59px;
@@ -252,7 +255,12 @@ body {
   }
 
   .sub-menu {
-    padding: 15px 30px;
+    padding: 30px 30px;
+    padding-top: 0;
+  }
+
+  .sub-menu-item.right-divider {
+    border-right: 0 !important;
   }
 
   .sub-menu h4 {
@@ -266,6 +274,22 @@ body {
 
   .sub-menu ul li {
     font-size: 1.25rem;
+  }
+
+  .square-div {
+    display: none !important;
+  }
+
+  .navbar-nav > li > a {
+    transition: all 0.4s ease;
+  }
+
+  .navbar-nav > li > a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .navbar-nav > li.sv-book-classes > a:hover {
+    background-color: #ec008b; /* TODO: prita */
   }
 }
 
@@ -408,4 +432,18 @@ body {
 .sv-book-classes a span {
   font-weight: bold;
   color: white;
+}
+
+/* Hide the overlay by default */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2); /* Dark semi-transparent color */
+  backdrop-filter: blur(5px); /* This applies the blur effect */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  display: none;
+  z-index: 999; /* Should be below your menu */
 }
