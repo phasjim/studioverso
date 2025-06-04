@@ -54,25 +54,25 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const menuIcon = document.getElementById('menuIcon');
-        const sv-navbarCollapse = document.getElementById('sv-navbarCollapse');
+        const svNavbarCollapse = document.getElementById('svNavbarCollapse');
         const svMenuOverlay = document.getElementById('svMenuOverlay');
 
         function openMenu() {
-          sv-navbarCollapse.style.display = 'block';
+          svNavbarCollapse.style.display = 'block';
           svMenuOverlay.style.display = 'block';
           menuIcon.classList.add('active');
 
           // Disable body scroll
-          document.body.classList.add('no-scroll');
+          document.body.classList.add('sv-no-scroll');
         }
 
         function closeMenu() {
-          sv-navbarCollapse.style.display = 'none';
+          svNavbarCollapse.style.display = 'none';
           svMenuOverlay.style.display = 'none';
           menuIcon.classList.remove('active');
 
           // Enable body scroll
-          document.body.classList.remove('no-scroll');
+          document.body.classList.remove('sv-no-scroll');
 
           // Close all submenus
           const allSubmenus = document.querySelectorAll('.sub-menu');
@@ -83,7 +83,7 @@
 
         // Main menu icon click
         menuIcon.addEventListener('click', () => {
-          if (sv-navbarCollapse.style.display === 'block') {
+          if (svNavbarCollapse.style.display === 'block') {
             closeMenu();
           } else {
             openMenu();
@@ -134,9 +134,9 @@
     <!-- ======================================== -->
     <!-- ================= NAVBAR =============== -->
     <!-- ======================================== -->
-    <div class="main-wrapper">
+    <div class="sv-main-wrapper">
       <nav class="sv-navbar">
-        <div class="brand-and-icon">
+        <div class="sv-brand-and-icon">
           <a href="https://www.studioverso.ca" class="sv-navbar-brand">
             <img
               src="https://images.squarespace-cdn.com/content/v1/659ffd5acc33bf3dd5158e2d/1704983965918-ID3E8OFU3KP4KWDIGLRQ/STUDIO-VERSO%CC%84-LOGO-%28Website%29.png"
@@ -145,7 +145,7 @@
           </a>
           <button type="button" class="sv-navbar-toggler">
             <!-- three bars menu or "x" -->
-            <div class="menu-icon" id="menuIcon">
+            <div class="sv-menu-icon" id="menuIcon">
               <span></span>
               <span></span>
               <span></span>
@@ -156,7 +156,7 @@
         <!-- ======================================== -->
         <!-- ================ STUDIOS =============== -->
         <!-- ======================================== -->
-        <div class="sv-navbar-collapse" id="sv-navbarCollapse" style="display: none">
+        <div class="sv-navbar-collapse" id="svNavbarCollapse" style="display: none">
           <ul class="sv-navbar-nav">
             <li>
               <a href="https://www.studioverso.ca/" class="menu-link sv-menu-prevent-default">

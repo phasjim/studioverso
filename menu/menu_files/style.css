@@ -13,15 +13,15 @@ body {
   user-select: none;
 }
 
-.main-wrapper img {
+.sv-main-wrapper img {
   width: 100%;
   display: block;
 }
-.main-wrapper a {
+.sv-main-wrapper a {
   color: #141625;
   text-decoration: none;
 }
-.main-wrapper ul li {
+.sv-main-wrapper ul li {
   list-style-type: none;
 }
 .sv-navbar {
@@ -44,7 +44,7 @@ body {
   padding: 0 3rem;
   z-index: 10000;
 }
-.brand-and-icon {
+.sv-brand-and-icon {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
@@ -68,7 +68,7 @@ body {
   top: 15px;
 }
 
-.menu-icon {
+.sv-menu-icon {
   width: 30px;
   height: 25px;
   position: relative;
@@ -78,7 +78,7 @@ body {
   justify-content: space-between;
 }
 
-.menu-icon span {
+.sv-menu-icon span {
   display: block;
   height: 2px;
   background: #141625;
@@ -87,22 +87,22 @@ body {
 }
 
 /* Toggle "X" effect */
-.menu-icon.active span:nth-child(1) {
+.sv-menu-icon.active span:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
 }
 
-.menu-icon.active span:nth-child(2) {
+.sv-menu-icon.active span:nth-child(2) {
   opacity: 0;
 }
 
-.menu-icon.active span:nth-child(3) {
+.sv-menu-icon.active span:nth-child(3) {
   transform: rotate(-45deg) translate(8px, -8px);
 }
 
 .sv-navbar-toggler:hover {
   opacity: 0.7;
 }
-.no-scroll {
+.sv-no-scroll {
   overflow: hidden; /* disables background page scroll */
 }
 .sv-navbar-collapse {
@@ -127,12 +127,6 @@ body {
   font-weight: 200;
   font-size: 1.25em;
   letter-spacing: 1px;
-}
-.drop-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .sv-navbar-nav > li > a:hover {
   opacity: 0.7;
@@ -236,7 +230,7 @@ body {
     padding: 0 2rem;
   }
 
-  .brand-and-icon {
+  .sv-brand-and-icon {
     flex: 0 0 130px;
   }
 
@@ -318,7 +312,7 @@ body {
   .sv-navbar-toggler {
     display: none;
   }
-  .brand-and-icon {
+  .sv-brand-and-icon {
     flex: 0 0 165px;
     border-bottom: none;
     padding: 0;
