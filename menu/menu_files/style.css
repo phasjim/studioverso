@@ -215,7 +215,17 @@ body {
 }
 .header button:hover {
   background: #fff;
-  color: #141625;
+  color: hsl(233, 30%, 11%);
+}
+
+.chevron {
+  display: none !important;
+  transition: transform 0.3s ease;
+  margin-left: auto; /* pushes it to the right */
+}
+
+.chevron.rotate {
+  transform: rotate(180deg);
 }
 
 /* Media Queries */
@@ -290,6 +300,10 @@ body {
 
   .navbar-nav > li.sv-book-classes > a:hover {
     background-color: #ec008b; /* TODO: prita */
+  }
+
+  .chevron {
+    display: inline-block !important;
   }
 }
 

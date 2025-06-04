@@ -63,18 +63,22 @@
         const navbarCollapse = document.getElementById('navbarCollapse');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        // Function to open menu
         function openMenu() {
           navbarCollapse.style.display = 'block';
           menuOverlay.style.display = 'block';
           menuIcon.classList.add('active');
+
+          // Disable body scroll
+          document.body.classList.add('no-scroll');
         }
 
-        // Function to close menu and ALL submenus
         function closeMenu() {
           navbarCollapse.style.display = 'none';
           menuOverlay.style.display = 'none';
           menuIcon.classList.remove('active');
+
+          // Enable body scroll
+          document.body.classList.remove('no-scroll');
 
           // Close all submenus
           const allSubmenus = document.querySelectorAll('.sub-menu');
@@ -83,46 +87,47 @@
           });
         }
 
+        // Main menu icon click
         menuIcon.addEventListener('click', () => {
           if (navbarCollapse.style.display === 'block') {
             closeMenu();
           } else {
             openMenu();
-
-            // Dealing with submenus
-            const menuItems = document.querySelectorAll('.sv-menu-prevent-default');
-
-            menuItems.forEach(item => {
-              item.addEventListener('click', (e) => {
-                if (window.innerWidth < 1070) {
-                  e.preventDefault();
-                  const submenu = item.nextElementSibling;
-
-                  if (submenu && submenu.classList.contains('sub-menu')) {
-                    // CLOSE ALL submenus first
-                    const allSubmenus = document.querySelectorAll('.sub-menu');
-                    allSubmenus.forEach(sm => {
-                      if (sm !== submenu) {
-                        sm.style.display = 'none';
-                      }
-                    });
-
-                    // Toggle the clicked submenu
-                    if (submenu.style.display === 'block') {
-                      submenu.style.display = 'none';
-                    } else {
-                      submenu.style.display = 'block';
-                    }
-                  }
-                }
-              });
-            });
           }
         });
 
         // Clicking on overlay closes everything
         menuOverlay.addEventListener('click', () => {
           closeMenu();
+        });
+
+        // Dealing with submenus (attach ONCE at page load)
+        const menuItems = document.querySelectorAll('.sv-menu-prevent-default');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            if (window.innerWidth < 1070) {
+              e.preventDefault();
+              const submenu = item.nextElementSibling;
+              const chevron = item.querySelector('.chevron');
+
+              if (submenu && submenu.classList.contains('sub-menu')) {
+                // CLOSE ALL submenus first
+                const allSubmenus = document.querySelectorAll('.sub-menu');
+                const allChevrons = document.querySelectorAll('.chevron');
+                allSubmenus.forEach(sm => sm.style.display = 'none');
+                allChevrons.forEach(ch => ch.classList.remove('rotate'));
+
+                // Toggle the clicked submenu and chevron
+                if (submenu.style.display === 'block') {
+                  submenu.style.display = 'none';
+                  if (chevron) chevron.classList.remove('rotate');
+                } else {
+                  submenu.style.display = 'block';
+                  if (chevron) chevron.classList.add('rotate');
+                }
+              }
+            }
+          });
         });
       });
     </script>
@@ -164,6 +169,7 @@
               <a href="https://www.studioverso.ca/" class="menu-link sv-menu-prevent-default">
                 <i class="material-symbols-outlined">bolt</i>
                 <span class="sv-nav-main-item">&ensp;Studios</span>
+                <i class="chevron material-symbols-outlined">expand_more</i>
               </a>
               <div class="sub-menu" style="display: none">
                 <!-- item -->
@@ -286,6 +292,7 @@
               <a href="https://studioverso.shop/" class="menu-link sv-menu-prevent-default">
                 <i class="material-symbols-outlined">local_mall</i>
                 <span class="sv-nav-main-item">&ensp;Shop</span>
+                <i class="chevron material-symbols-outlined">expand_more</i>
               </a>
               <div class="sub-menu" style="display: none">
                 <!-- item -->
