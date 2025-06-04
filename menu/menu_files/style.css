@@ -8,6 +8,12 @@ body {
   line-height: 1.4;
 }
 
+/**
+ *    Navigation by:  Prita Hasjim
+ *                    hello@pritahasjim.com
+ *                    wwww.pritahasjim.com
+ */
+
 .sv-navbar,
 .sv-navbar * {
   user-select: none;
@@ -462,3 +468,5 @@ body {
   display: none;
   z-index: 999; /* Should be below your menu */
 }
+
+/********************************* END NAV BAR STYLES /*********************************/
