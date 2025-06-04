@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- source: https://www.jqueryscript.net/menu/dropdown-mega-navigation.html -->
+<!-- saved from url=(0060)https://www.jqueryscript.net/demo/dropdown-mega-navigation/# -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Modern Dropdown Mega Menu Example</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./menu_files/style.css" />
+
+
+    <!-- Adobe Fonts-->
+    <link
+      rel="preload"
+      href="https://use.typekit.net/byf5spa.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+      <link rel="stylesheet" href="https://use.typekit.net/byf5spa.css" />
+    </noscript>
+    <link rel="stylesheet" href="https://use.typekit.net/byf5spa.css" />
+
+
+    <!-- ======================================== -->
+    <!-- Navigation by:  Prita Hasjim             -->
+    <!--                 hello@pritahasjim.com    -->
+    <!--                 www.pritahasjim.com      -->
+    <!-- ======================================== -->
+    <!-- Google Material -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+
+    <!-- Navbar animations -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const menuIcon = document.getElementById('menuIcon');
+        const svNavbarCollapse = document.getElementById('svNavbarCollapse');
+        const svMenuOverlay = document.getElementById('svMenuOverlay');
+
+        function openMenu() {
+          svNavbarCollapse.style.display = 'block';
+          svMenuOverlay.style.display = 'block';
+          menuIcon.classList.add('active');
+
+          // Disable body scroll
+          document.body.classList.add('sv-no-scroll');
+        }
+
+        function closeMenu() {
+          svNavbarCollapse.style.display = 'none';
+          svMenuOverlay.style.display = 'none';
+          menuIcon.classList.remove('active');
+
+          // Enable body scroll
+          document.body.classList.remove('sv-no-scroll');
+
+          // Close all submenus
+          const allSubmenus = document.querySelectorAll('.sub-menu');
+          allSubmenus.forEach(sm => {
+            sm.style.display = 'none';
+          });
+        }
+
+        // Main menu icon click
+        menuIcon.addEventListener('click', () => {
+          if (svNavbarCollapse.style.display === 'block') {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        // Clicking on overlay closes everything
+        svMenuOverlay.addEventListener('click', () => {
+          closeMenu();
+        });
+
+        // Dealing with submenus (attach ONCE at page load)
+        const menuItems = document.querySelectorAll('.sv-menu-prevent-default');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            if (window.innerWidth < 1070) {
+              e.preventDefault();
+              const submenu = item.nextElementSibling;
+              const chevron = item.querySelector('.chevron');
+
+              if (submenu && submenu.classList.contains('sub-menu')) {
+                const isOpen = submenu.style.display === 'block';
+
+                // Close all submenus and reset all chevrons
+                const allSubmenus = document.querySelectorAll('.sub-menu');
+                const allChevrons = document.querySelectorAll('.chevron');
+                allSubmenus.forEach(sm => sm.style.display = 'none');
+                allChevrons.forEach(ch => ch.classList.remove('rotate'));
+
+                // Toggle the clicked submenu and chevron
+                if (!isOpen) {
+                  submenu.style.display = 'block';
+                  if (chevron) chevron.classList.add('rotate');
+                }
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body
+    data-new-gr-c-s-check-loaded="14.1238.0"
+    data-gr-ext-installed=""
+    data-new-gr-c-s-loaded="14.1238.0"
+    class="vsc-initialized"
+  >
+
+    <!-- ======================================== -->
+    <!-- Navigation by:  Prita Hasjim             -->
+    <!--                 hello@pritahasjim.com    -->
+    <!--                 www.pritahasjim.com      -->
+    <!-- ======================================== -->
+
+    <!-- ================= NAVBAR =============== -->
+    <div class="sv-main-wrapper">
+      <nav class="sv-navbar">
+        <div class="sv-brand-and-icon">
+          <a href="https://www.studioverso.ca" class="sv-navbar-brand">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/659ffd5acc33bf3dd5158e2d/1704983965918-ID3E8OFU3KP4KWDIGLRQ/STUDIO-VERSO%CC%84-LOGO-%28Website%29.png"
+              alt="STUDIO VERSŌ"
+            />
+          </a>
+          <button type="button" class="sv-navbar-toggler">
+            <!-- three bars menu or "x" -->
+            <div class="sv-menu-icon" id="menuIcon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+
+        <!-- ================ STUDIOS =============== -->
+        <div class="sv-navbar-collapse" id="svNavbarCollapse" style="display: none">
+          <ul class="sv-navbar-nav">
+            <li>
+              <a href="https://www.studioverso.ca/" class="menu-link sv-menu-prevent-default">
+                <i class="material-symbols-outlined">bolt</i>
+                <span class="sv-nav-main-item">&ensp;Studios</span>
+                <i class="chevron material-symbols-outlined">expand_more</i>
+              </a>
+              <div class="sub-menu" style="display: none">
+                <!-- item -->
+                <div class="sub-menu-item right-divider">
+                  <h4>Locations</h4>
+                  <ul>
+                    <li>
+                      <a
+                        href="https://www.studioverso.ca/studios"
+                        >Our Studios</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.studioverso.ca/st-johns-oleary"
+                        >St. John's - O'Leary</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://studioverso.ca/mount-pearl-glenhill"
+                        >Mount Pearl - Glenhill</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of item -->
+                <!-- item -->
+                <div class="sub-menu-item">
+                  <h4>Programs</h4>
+                  <ul>
+                    <li>
+                      <a href="https://www.studioverso.ca/barre">Barre</a>
+                    </li>
+                    <li>
+                      <a href="https://www.studioverso.ca/pilates">Pilates</a>
+                    </li>
+                    <li><a href="https://www.studioverso.ca/spin">Spin</a></li>
+                    <li>
+                      <a href="https://www.studioverso.ca/train">Train</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="sub-menu-item right-divider">
+                  <h4 class="sv-hidden-h4">&emsp;</h4>
+                  <ul>
+                    <li><a href="https://www.studioverso.ca/row">Row</a></li>
+                    <li><a href="https://www.studioverso.ca/yoga">Yoga</a></li>
+                    <li style="width: 115%">
+                      <a href="https://www.studioverso.ca/recovery">Recovery</a>
+                    </li>
+                    <li style="width: 115%">
+                      <a href="https://www.studioverso.ca/baby-and-me"
+                        >Baby + Me</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of item -->
+                <!-- item -->
+                <div class="sub-menu-item">
+                  <h4>Experience</h4>
+                  <ul>
+                    <li>
+                      <a href="https://www.studioverso.ca/instructors"
+                        >Instructors</a
+                      >
+                    </li>
+                    <li style="width: 165%">
+                      <a href="https://www.studioverso.ca/adapted-programing"
+                        >Adapted Programming</a
+                      >
+                    </li>
+                    <li style="width: 165%">
+                      <a
+                        href="https://www.studioverso.ca/private-events-corporate-rates"
+                        >Private Events + Corporate Rates</a
+                      >
+                    </li>
+                    <li>
+                      <a href="https://www.studioverso.ca/verso-gives"
+                        >VERSŌ Gives</a
+                      >
+                    </li>
+                    <li>
+                      <a href="https://www.studioverso.ca/faq">FAQ</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of item -->
+                <!-- item -->
+                <div class="sub-menu-item"></div>
+                <!-- end of item -->
+                <!-- item -->
+                <div class="sub-menu-item">
+                  <div class="square-div-wrapper">
+                    <a
+                      href="https://www.studioverso.ca/book"
+                      class="square-div verso-bike"
+                    >
+                      <span>FIRST CLASS ON US</span>
+                    </a>
+
+                    <a
+                      href="https://www.studioverso.ca/book"
+                      class="square-div verso-yoga"
+                    >
+                      <span>BUY CLASSES</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- end of item -->
+              </div>
+            </li>
+
+            <!-- ================= SHOP ================= -->
+            <li>
+              <a href="https://studioverso.shop/" class="menu-link sv-menu-prevent-default">
+                <i class="material-symbols-outlined">local_mall</i>
+                <span class="sv-nav-main-item">&ensp;Shop</span>
+                <i class="chevron material-symbols-outlined">expand_more</i>
+              </a>
+              <div class="sub-menu" style="display: none">
+                <!-- item -->
+                <div class="sub-menu-item">
+                  <h4>VERSŌ Wear</h4>
+                  <ul>
+                    <li>
+                      <a
+                        href="https://studioverso.shop/collections/apparel"
+                        >Apparel</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://studioverso.shop/collections/accessories"
+                        >Accessories</a
+                      >
+                    </li>
+                    <!-- <li>
+                      <a
+                        href="https://www.jqueryscript.net/demo/dropdown-mega-navigation/#"
+                        >Sale</a
+                      >
+                    </li> -->
+                    <li>
+                      <a
+                        href="https://studioverso.shop/collections/all"
+                        >Shop All</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <!-- end of item -->
+              </div>
+            </li>
+
+            <!-- ============== ON-DEMAND =============== -->
+            <li>
+              <a
+                href="https://ondemand.studioverso.ca/"
+                class="menu-link"
+              >
+                <i class="material-symbols-outlined">play_circle</i>
+                <span class="sv-nav-main-item">&ensp;On Demand</span>
+              </a>
+            </li>
+
+            <!-- ============= MAIN SITE ================ -->
+            <li class="sv-my-account">
+              <a href="https://www.studioverso.ca/login" class="menu-link">
+                <span class="sv-nav-main-item">MY ACCOUNT</span>
+              </a>
+            </li>
+            <li class="sv-book-classes">
+              <a
+                href="https://www.studioverso.ca/book"
+                class="menu-link"
+                style="margin: 0"
+              >
+                <span class="sv-nav-main-item">BOOK CLASSES</span>
+              </a>
+            </li>
+
+            <!-- ============== SHOPIFY ================= -->
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div id="svMenuOverlay" class="sv-overlay"></div>
+
+
+
+
+
+
+    <section class="header">
+      <h2>STUDIO VERSŌ</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
+        necessitatibus. Veniam corrupti deserunt, sint eligendi culpa sed
+        aliquid error magnam id? Delectus laborum placeat ipsam est. Iusto
+        dolores excepturi autem?
+      </p>
+      <button type="button">Shop Now</button>
+    </section>
+
+</html>
