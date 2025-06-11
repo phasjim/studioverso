@@ -8,7 +8,9 @@ body {
   line-height: 1.4;
 }
 
+/****************************************************************************************/
 /********************************* START NAV BAR STYLES *********************************/
+/****************************************************************************************/
 
 /**
  *    Navigation by:  Prita Hasjim
@@ -19,6 +21,11 @@ body {
 .sv-navbar,
 .sv-navbar * {
   user-select: none;
+}
+
+.sv-main-wrapper,
+.sub-menu {
+  box-shadow: 0 1px 10px 0px #eee;
 }
 
 .sv-main-wrapper img {
@@ -146,6 +153,7 @@ body {
   font-size: 12px;
   padding: 5px 0;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 .sub-menu ul li {
   font-family: "proxima-nova-condensed", "Helvetica Neue Condensed",
@@ -247,8 +255,36 @@ body {
   }
 }
 
+.sv-shopify-nav-main-item {
+  display: none !important;
+}
+
 /* toggle / mobile menu */
 @media (max-width: 974px) {
+  .sv-my-cart a span {
+    margin-top: 0 !important;
+  }
+
+  .sv-book-classes a,
+  .sv-my-account a,
+  .sv-my-cart a {
+    height: 54px !important;
+  }
+
+  .sv-my-account a span,
+  .sv-my-cart a span {
+    margin-top: 6px !important;
+  }
+
+  .sv-shopify-link {
+    width: 100% !important;
+    padding: 14px 20px 14px 6px !important;
+  }
+
+  .sv-shopify-nav-main-item {
+    display: inline-block !important;
+  }
+
   .sv-navbar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.075) !important;
     height: 61px !important;
@@ -284,7 +320,8 @@ body {
 
   .sub-menu h4 {
     margin-top: 30px;
-    font-size: 1em;
+    font-size: 12px;
+    font-weight: bold;
   }
 
   .sub-menu .sv-hidden-h4 {
@@ -384,7 +421,7 @@ body {
   display: flex;
   flex-direction: row;
   width: 125%;
-  margin-left: -27%;
+  margin-left: 60%;
 }
 
 .square-div {
@@ -435,12 +472,14 @@ body {
 }
 
 .sv-book-classes,
-.sv-my-account {
+.sv-my-account,
+.sv-my-cart {
   border-bottom-color: transparent !important;
 }
 
 .sv-book-classes:hover,
-.sv-my-account:hover {
+.sv-my-account:hover,
+.sv-my-cart:hover {
   opacity: 0.8;
 }
 
@@ -472,4 +511,6 @@ body {
   z-index: 999; /* Should be below your menu */
 }
 
-/********************************* END NAV BAR STYLES *********************************/
+/****************************************************************************************/
+/********************************* END NAV BAR STYLES ***********************************/
+/****************************************************************************************/
