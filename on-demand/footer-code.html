@@ -15,16 +15,38 @@
     });
   }
 
+  function handleEmptyCarousels() {
+    document
+      .querySelectorAll(".category-carousel")
+      .forEach(function (carousel) {
+        const owlStage = carousel.querySelector(".owl-stage");
+        const hasItems = owlStage && owlStage.children.length > 0;
+
+        if (!hasItems) {
+          if (carousel.closest(".my-favorite")) {
+            if (!carousel.querySelector(".no-favorites-placeholder")) {
+              const messageDiv = document.createElement("div");
+              messageDiv.className = "no-favorites-placeholder";
+              messageDiv.textContent =
+                "You haven’t saved any favorites yet. Tap the heart on a video to get started!";
+              carousel.appendChild(messageDiv);
+            }
+          } else {
+            carousel.remove();
+          }
+        }
+      });
+  }
+
   window.onload = function () {
-    // Initial run
     applyVersoPink();
     removeEquipment();
+    handleEmptyCarousels();
 
-    // Setup MutationObserver to watch for DOM changes
-    const observer = new MutationObserver(function (mutationsList) {
-      // Reapply styles & remove Equipment if needed
+    const observer = new MutationObserver(function () {
       applyVersoPink();
       removeEquipment();
+      handleEmptyCarousels();
     });
 
     observer.observe(document.body, {

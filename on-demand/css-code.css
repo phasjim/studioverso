@@ -6,6 +6,10 @@
  *                    wwww.pritahasjim.com
  */
 
+body {
+  min-width: 320px;
+}
+
 .sv-navbar,
 .sv-navbar * {
   user-select: none;
@@ -522,4 +526,15 @@ a.sv-underline-link {
 
 .footer-logo {
   margin-right: 30px;
+}
+
+.no-favorites-placeholder {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+  background-color: #eee;
+  margin: 0 30px;
+  border-radius: 5px;
 }
