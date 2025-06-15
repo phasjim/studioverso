@@ -1,0 +1,485 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* font-family: 'Roboto', sans-serif; */
+}
+body {
+  line-height: 1.4;
+}
+
+/********************************* START NAV BAR STYLES *********************************/
+
+/**
+ *    Navigation by:  Prita Hasjim
+ *                    hello@pritahasjim.com
+ *                    wwww.pritahasjim.com
+ */
+
+.sv-navbar,
+.sv-navbar * {
+  user-select: none;
+}
+
+.sv-main-wrapper img {
+  width: 100%;
+  display: block;
+}
+.sv-main-wrapper a {
+  color: #141625;
+  text-decoration: none;
+}
+.sv-main-wrapper ul li {
+  list-style-type: none;
+}
+.sv-navbar {
+  background: #fafafa;
+  padding: 0 10%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  z-index: 10;
+  font-family: "proxima-nova-condensed", "Helvetica Neue Condensed",
+    "Arial Narrow", Helvetica, Arial, sans-serif;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  position: relative;
+  padding: 0 4%;
+  z-index: 10000;
+}
+.sv-brand-and-icon {
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 0;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.075); */
+}
+.sv-navbar-brand {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+.sv-navbar-toggler {
+  display: block;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px;
+  transition: all 0.4s ease;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.sv-menu-icon {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sv-menu-icon span {
+  display: block;
+  height: 2px;
+  background: #141625;
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+/* Toggle "X" effect */
+.sv-menu-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.sv-menu-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.sv-menu-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.sv-navbar-toggler:hover {
+  opacity: 0.7;
+}
+.sv-no-scroll {
+  overflow: hidden; /* disables background page scroll */
+}
+.sv-navbar-collapse {
+  overflow-y: scroll;
+  display: none;
+}
+.sv-navbar-nav > li > a {
+  cursor: pointer;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 12px !important;
+  font-weight: 700;
+  display: flex;
+  margin: 20px 26px 20px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  border-radius: 1px;
+  position: relative;
+  transition: all 0.4s ease;
+  justify-content: center;
+}
+.sv-navbar-nav > li > a .sv-nav-main-item {
+  font-weight: 200;
+  font-size: 1.25em;
+  letter-spacing: 1px;
+}
+.sv-navbar-nav > li > a:hover {
+  opacity: 0.7;
+}
+.sub-menu h4 {
+  font-family: "proxima-nova-condensed", "Helvetica Neue Condensed",
+    "Arial Narrow", sans-serif !important;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 5px 0;
+  letter-spacing: 2px;
+}
+.sub-menu ul li {
+  font-family: "proxima-nova-condensed", "Helvetica Neue Condensed",
+    "Arial Narrow", Helvetica, Arial, sans-serif !important;
+  text-transform: capitalize;
+  padding: 5px 0;
+  margin: 5px 0;
+  font-size: 16px;
+}
+.sub-menu ul li a {
+  opacity: 0.8;
+  transition: all 0.5s ease;
+}
+.sub-menu ul li a:hover {
+  /* text-decoration: underline; TODO: think of better transition */
+  margin-left: 4px;
+  opacity: 0.9;
+  width: 150%;
+}
+.sub-menu {
+  display: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sub-menu-item {
+  padding-left: 10px;
+}
+
+.sub-menu-item.right-divider {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  margin-right: 10%;
+}
+
+/* header */
+.header {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(https://www.jqueryscript.net/dummy/1.jpg) center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header h2 {
+  margin: 12px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.header p {
+  margin: 12px auto;
+  color: #fff;
+  width: 60%;
+  opacity: 0.8;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+}
+.header button {
+  margin: 12px;
+  font-size: 18px;
+  text-transform: uppercase;
+  background: #141625;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.header button:hover {
+  background: #fff;
+  color: hsl(233, 30%, 11%);
+}
+
+.chevron {
+  display: none !important;
+  transition: transform 0.3s ease;
+  margin-left: auto; /* pushes it to the right */
+}
+
+.chevron.rotate {
+  transform: rotate(180deg);
+}
+
+/* Media Queries */
+@media (max-width: 1070px) {
+  .sv-navbar {
+    align-items: center;
+    padding: 0 12px;
+  }
+
+  .sv-brand-and-icon {
+    flex: 0 0 130px;
+  }
+
+  .sv-navbar-nav {
+    margin-left: 0;
+  }
+}
+
+/* toggle / mobile menu */
+@media (max-width: 974px) {
+  .sv-navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075) !important;
+    height: 61px !important;
+  }
+
+  .sv-navbar-nav {
+    background-color: #f8f8f8;
+    overflow-y: auto;
+    overflow-x: clip;
+    position: fixed;
+    left: 0;
+    top: 59px;
+    width: 100%;
+    max-height: calc(100vh - 59px);
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+  }
+
+  .sv-navbar-nav > li > a {
+    margin: 0 !important;
+    padding: 14px 20px 14px 14px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+    justify-content: flex-start !important;
+  }
+
+  .sub-menu {
+    padding: 30px 30px;
+    padding-top: 0;
+  }
+
+  .sub-menu-item.right-divider {
+    border-right: 0 !important;
+  }
+
+  .sub-menu h4 {
+    margin-top: 30px;
+    font-size: 1em;
+  }
+
+  .sub-menu .sv-hidden-h4 {
+    display: none !important;
+  }
+
+  .sub-menu ul li {
+    font-size: 18px;
+  }
+
+  .square-div {
+    display: none !important;
+  }
+
+  .sv-navbar-nav > li > a {
+    transition: all 0.4s ease;
+  }
+
+  .sv-navbar-nav > li > a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .sv-navbar-nav > li.sv-book-classes > a:hover {
+    background-color: #ec008b; /* TODO: prita */
+  }
+
+  .chevron {
+    display: inline-block !important;
+  }
+}
+
+@media screen and (min-width: 975px) {
+  .sv-navbar-toggler {
+    display: none;
+  }
+  .sv-brand-and-icon {
+    flex: 0 0 165px;
+    border-bottom: none;
+    padding: 0;
+  }
+  .sv-navbar-collapse {
+    display: block !important;
+    overflow-y: hidden;
+    flex: 1 0 auto;
+  }
+  .sv-navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+  .sv-navbar-nav > li > a {
+    border-bottom: none;
+    font-size: 10px;
+  }
+  .sub-menu {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 100%;
+    background: #f8f8f8;
+    padding-bottom: 35px !important;
+  }
+  .sv-navbar-nav > li:hover .sub-menu {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 25px;
+  }
+  .sv-navbar-nav > li {
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.4s ease;
+  }
+  .sv-navbar-nav > li:hover {
+    border-bottom-color: #141625;
+  }
+  .sub-menu-item {
+    padding-left: 0;
+  }
+  .sub-menu-item:nth-child(3) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* header */
+  .header {
+    height: calc(100vh - 75px);
+  }
+  .header h2 {
+    font-size: 18px;
+  }
+  .header p {
+    width: 40%;
+  }
+}
+
+.square-div-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 125%;
+  margin-left: -27%;
+}
+
+.square-div {
+  width: calc(50% - 5px);
+  aspect-ratio: 1 / 1;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px 10px 0;
+  padding: 10px;
+  background-image: url("https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/ba49c9f7-d0d7-40f2-87f8-8e0fbcd923f7/studio_verso_may2024-145dweb.jpg");
+  transition: all 0.5s ease;
+}
+
+.square-div:hover {
+  opacity: 0.8;
+}
+
+.square-div.verso-bike {
+  background-image: url("https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/3a046119-d0ca-4506-9907-45c738ba6a9a/2022VersoBikes.jpg");
+}
+
+.square-div.verso-yoga {
+  background-image: url("https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/6734af28-8665-4d1b-99e9-faf8363328c1/2024VersoYoga+%282%29.jpg");
+}
+
+.square-div.verso-blur {
+  background-image: url("https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/aabc6f8b-3632-4709-aa0e-b0767c5c2fb9/Screen+Shot+2025-03-06+at+10.17.27+AM.png");
+}
+
+.square-div.verso-weights {
+  background-image: url("https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/f174b4c7-3e55-40f0-b9a9-979ea9c6c821/studio_verso_nov2024-121dweb.jpg");
+}
+
+.square-div span {
+  color: white;
+  z-index: 2;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.square-div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* optional overlay for text visibility */
+  z-index: 1;
+}
+
+.sv-book-classes,
+.sv-my-account,
+.sv-subscribe {
+  border-bottom-color: transparent !important;
+}
+
+.sv-book-classes:hover,
+.sv-my-account:hover,
+.sv-subscribe:hover {
+  opacity: 0.8;
+}
+
+.sv-my-account {
+  margin-left: auto;
+}
+
+.sv-book-classes a {
+  background-color: #ec008b;
+  padding: 10px 20px;
+}
+
+.sv-book-classes a span {
+  font-weight: bold;
+  color: white;
+}
+
+/* Hide the overlay by default */
+.sv-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2); /* Dark semi-transparent color */
+  backdrop-filter: blur(5px); /* This applies the blur effect */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  display: none;
+  z-index: 999; /* Should be below your menu */
+}
+
+/********************************* END NAV BAR STYLES *********************************/

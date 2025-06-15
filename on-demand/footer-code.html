@@ -1,0 +1,35 @@
+<script>
+  function applyVersoPink() {
+    document.querySelectorAll(".is-red").forEach(function (item) {
+      item.style.setProperty("background-color", "#ec008b", "important");
+      item.style.setProperty("border-color", "#ec008b", "important");
+      item.style.setProperty("background", "#ec008b", "important");
+    });
+  }
+
+  function removeEquipment() {
+    document.querySelectorAll("li").forEach(function (li) {
+      if (li.textContent.trim() === "Equipment") {
+        li.remove();
+      }
+    });
+  }
+
+  window.onload = function () {
+    // Initial run
+    applyVersoPink();
+    removeEquipment();
+
+    // Setup MutationObserver to watch for DOM changes
+    const observer = new MutationObserver(function (mutationsList) {
+      // Reapply styles & remove Equipment if needed
+      applyVersoPink();
+      removeEquipment();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  };
+</script>

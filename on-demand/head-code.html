@@ -1,0 +1,458 @@
+<!-- ======================================== -->
+<!-- Navigation by:  Prita Hasjim             -->
+<!--                 hello@pritahasjim.com    -->
+<!--                 www.pritahasjim.com      -->
+<!-- ======================================== -->
+
+<!-- Loading overlay -->
+<div id="loading-overlay"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Remove the header
+    document.querySelector("header")?.remove();
+  });
+
+  window.addEventListener("load", function () {
+    // Fade out the loading overlay
+    const overlay = document.getElementById("loading-overlay");
+    if (overlay) {
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 1000);
+    }
+  });
+
+  document.fonts.ready.then(() => {
+    // Wait 1 second after fonts are ready, then add class
+    setTimeout(() => {
+      document.body.classList.add("fonts-loaded");
+    }, 1000);
+  });
+</script>
+
+<!-- Adobe Fonts-->
+<link
+  rel="preload"
+  href="https://use.typekit.net/byf5spa.css"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
+<!-- Fallback for browsers with JavaScript disabled -->
+<noscript>
+  <link rel="stylesheet" href="https://use.typekit.net/byf5spa.css" />
+</noscript>
+<link rel="stylesheet" href="https://use.typekit.net/byf5spa.css" />
+
+<!-- Google Material -->
+<link
+  rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
+<!-- Fallback for browsers with JavaScript disabled -->
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+</noscript>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+/>
+<style>
+  #loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white; /* or any color */
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+
+  @font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v250/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsLjBuVY.woff2)
+      format("woff2");
+    font-display: block; /* or auto to block text flicker */
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+  }
+
+  .material-symbols-outlined.icon-hidden {
+    color: #fafafa;
+    transition: all 0.4s ease;
+  }
+
+  .fonts-loaded .material-symbols-outlined.icon-hidden {
+    color: #141625;
+  }
+</style>
+
+<!-- Navbar animations -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menuIcon");
+    const svNavbarCollapse = document.getElementById("svNavbarCollapse");
+    const svMenuOverlay = document.getElementById("svMenuOverlay");
+
+    function openMenu() {
+      svNavbarCollapse.style.display = "block";
+      svMenuOverlay.style.display = "block";
+      menuIcon.classList.add("active");
+
+      // Disable body scroll
+      document.body.classList.add("sv-no-scroll");
+    }
+
+    function closeMenu() {
+      svNavbarCollapse.style.display = "none";
+      svMenuOverlay.style.display = "none";
+      menuIcon.classList.remove("active");
+
+      // Enable body scroll
+      document.body.classList.remove("sv-no-scroll");
+
+      // Close all submenus
+      const allSubmenus = document.querySelectorAll(".sub-menu");
+      allSubmenus.forEach((sm) => {
+        sm.style.display = "none";
+      });
+    }
+
+    // Main menu icon click
+    menuIcon.addEventListener("click", () => {
+      if (svNavbarCollapse.style.display === "block") {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Clicking on overlay closes everything
+    svMenuOverlay.addEventListener("click", () => {
+      closeMenu();
+    });
+
+    // Dealing with submenus (attach ONCE at page load)
+    const menuItems = document.querySelectorAll(".sv-menu-prevent-default");
+    menuItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        if (window.innerWidth < 1070) {
+          e.preventDefault();
+          const submenu = item.nextElementSibling;
+          const chevron = item.querySelector(".chevron");
+
+          if (submenu && submenu.classList.contains("sub-menu")) {
+            const isOpen = submenu.style.display === "block";
+
+            // Close all submenus and reset all chevrons
+            const allSubmenus = document.querySelectorAll(".sub-menu");
+            const allChevrons = document.querySelectorAll(".chevron");
+            allSubmenus.forEach((sm) => (sm.style.display = "none"));
+            allChevrons.forEach((ch) => ch.classList.remove("rotate"));
+
+            // Toggle the clicked submenu and chevron
+            if (!isOpen) {
+              submenu.style.display = "block";
+              if (chevron) chevron.classList.add("rotate");
+            }
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<!-- ================= NAVBAR =============== -->
+<div class="sv-main-wrapper">
+  <nav class="sv-navbar">
+    <div class="sv-brand-and-icon">
+      <a href="https://ondemand.studioverso.ca" class="sv-navbar-brand">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/659ffd5acc33bf3dd5158e2d/1704983965918-ID3E8OFU3KP4KWDIGLRQ/STUDIO-VERSO%CC%84-LOGO-%28Website%29.png"
+          alt="STUDIO VERSŌ"
+        />
+      </a>
+      <button type="button" class="sv-navbar-toggler">
+        <!-- three bars menu or "x" -->
+        <div class="sv-menu-icon" id="menuIcon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- ================ STUDIOS =============== -->
+    <div class="sv-navbar-collapse" id="svNavbarCollapse" style="display: none">
+      <ul class="sv-navbar-nav sv-navbar-nav-ul">
+        <li>
+          <a
+            href="https://www.studioverso.ca/"
+            class="menu-link sv-menu-prevent-default"
+          >
+            <i class="material-symbols-outlined icon-hidden">bolt</i>
+            <span class="sv-nav-main-item">&ensp;Studios</span>
+            <i class="chevron material-symbols-outlined icon-hidden"
+              >expand_more</i
+            >
+          </a>
+          <div class="sub-menu" style="display: none">
+            <!-- item -->
+            <div class="sub-menu-item right-divider">
+              <h4>Locations</h4>
+              <ul>
+                <li>
+                  <a href="https://www.studioverso.ca/studios">Our Studios</a>
+                </li>
+                <li>
+                  <a href="https://www.studioverso.ca/st-johns-oleary"
+                    >St. John's - O'Leary</a
+                  >
+                </li>
+                <li>
+                  <a href="https://studioverso.ca/mount-pearl-glenhill"
+                    >Mount Pearl - Glenhill</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item">
+              <h4>Programs</h4>
+              <ul>
+                <li>
+                  <a href="https://www.studioverso.ca/barre">Barre</a>
+                </li>
+                <li>
+                  <a href="https://www.studioverso.ca/pilates">Pilates</a>
+                </li>
+                <li><a href="https://www.studioverso.ca/spin">Spin</a></li>
+                <li>
+                  <a href="https://www.studioverso.ca/train">Train</a>
+                </li>
+              </ul>
+            </div>
+            <div class="sub-menu-item right-divider">
+              <h4 class="sv-hidden-h4">&emsp;</h4>
+              <ul>
+                <li><a href="https://www.studioverso.ca/row">Row</a></li>
+                <li><a href="https://www.studioverso.ca/yoga">Yoga</a></li>
+                <li style="width: 115%">
+                  <a href="https://www.studioverso.ca/recovery">Recovery</a>
+                </li>
+                <li style="width: 115%">
+                  <a href="https://www.studioverso.ca/baby-and-me">Baby + Me</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item">
+              <h4>Experience</h4>
+              <ul>
+                <li>
+                  <a href="https://www.studioverso.ca/instructors"
+                    >Instructors</a
+                  >
+                </li>
+                <li style="width: 165%">
+                  <a href="https://www.studioverso.ca/adapted-programing"
+                    >Adapted Programming</a
+                  >
+                </li>
+                <li style="width: 165%">
+                  <a
+                    href="https://www.studioverso.ca/private-events-corporate-rates"
+                    >Private Events + Corporate Rates</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.studioverso.ca/verso-gives"
+                    >VERSŌ Gives</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.studioverso.ca/faq">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item"></div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item">
+              <div class="square-div-wrapper">
+                <a
+                  href="https://www.studioverso.ca/book"
+                  class="square-div verso-bike"
+                >
+                  <span>FIRST CLASS ON US</span>
+                </a>
+
+                <a
+                  href="https://www.studioverso.ca/book"
+                  class="square-div verso-yoga"
+                >
+                  <span>BUY CLASSES</span>
+                </a>
+              </div>
+            </div>
+            <!-- end of item -->
+          </div>
+        </li>
+
+        <!-- ================= SHOP ================= -->
+        <li>
+          <a
+            href="https://studioverso.shop/"
+            class="menu-link sv-menu-prevent-default"
+          >
+            <i class="material-symbols-outlined icon-hidden">local_mall</i>
+            <span class="sv-nav-main-item">&ensp;Shop</span>
+            <i class="chevron material-symbols-outlined icon-hidden"
+              >expand_more</i
+            >
+          </a>
+          <div class="sub-menu" style="display: none">
+            <!-- item -->
+            <div class="sub-menu-item">
+              <h4>VERSŌ Wear</h4>
+              <ul>
+                <li>
+                  <a href="https://studioverso.shop/collections/apparel"
+                    >Apparel</a
+                  >
+                </li>
+                <li>
+                  <a href="https://studioverso.shop/collections/accessories"
+                    >Accessories</a
+                  >
+                </li>
+                <li>
+                  <a href="https://studioverso.shop/collections/sale">Sale</a>
+                </li>
+                <li>
+                  <a href="https://studioverso.shop/collections/all"
+                    >Shop All</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- end of item -->
+          </div>
+        </li>
+
+        <!-- ============== ON-DEMAND =============== -->
+        <li>
+          <a
+            href="https://ondemand.studioverso.ca/"
+            class="menu-link sv-menu-prevent-default"
+          >
+            <i class="material-symbols-outlined icon-hidden">play_circle</i>
+            <span class="sv-nav-main-item">&ensp;On Demand</span>
+            <i class="chevron material-symbols-outlined icon-hidden"
+              >expand_more</i
+            >
+          </a>
+          <div class="sub-menu" style="display: none">
+            <!-- item -->
+            <div class="sub-menu-item">
+              <h4>On Demand</h4>
+              <ul>
+                <li>
+                  <a href="https://ondemand.studioverso.ca/video/"
+                    >Video Library</a
+                  >
+                </li>
+                <li>
+                  <a href="https://ondemand.studioverso.ca/instructors/"
+                    >Instructors</a
+                  >
+                </li>
+                <li>
+                  <a href="https://ondemand.studioverso.ca/subscribe/"
+                    >Subscribe</a
+                  >
+                </li>
+                <li>
+                  <a href="https://ondemand.studioverso.ca/faq/">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item"></div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item"></div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item"></div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item"></div>
+            <!-- end of item -->
+            <!-- item -->
+            <div class="sub-menu-item">
+              <div class="square-div-wrapper">
+                <a
+                  href="https://ondemand.studioverso.ca/create-an-account/"
+                  class="square-div verso-blur"
+                >
+                  <span>CREATE AN ACCOUNT</span>
+                </a>
+
+                <a
+                  href="https://ondemand.studioverso.ca/subscribe/"
+                  class="square-div verso-weights"
+                >
+                  <span>SUBSCRIBE</span>
+                </a>
+              </div>
+            </div>
+            <!-- end of item -->
+          </div>
+        </li>
+
+        <!-- ============= MAIN SITE ================ -->
+        <li class="sv-my-account">
+          <a
+            href="https://ondemand.studioverso.ca/my-account/"
+            class="menu-link"
+          >
+            <span class="sv-nav-main-item">MY ACCOUNT</span>
+          </a>
+        </li>
+        <!-- <li class="sv-subscribe">
+          <a href="https://ondemand.studioverso.ca/subscribe/" class="menu-link">
+            <span class="sv-nav-main-item">SUBSCRIBE</span>
+          </a>
+        </li> -->
+        <li class="sv-book-classes">
+          <a
+            href="https://ondemand.studioverso.ca/video/"
+            class="menu-link"
+            style="margin: 0"
+          >
+            <span class="sv-nav-main-item">BROWSE LIBRARY</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div id="svMenuOverlay" class="sv-overlay"></div>
