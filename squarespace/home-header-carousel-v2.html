@@ -1,0 +1,155 @@
+<div class="firstNew-outer">
+  <div class="firstNew-inner owl-carousel">
+    <div class="slideSingle">
+      <img
+        src="https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/d5b56bc2-7f22-4249-9137-5d9306d43df6/1-verso-on-demand.jpg"
+        alt="VERSŌ ON DEMAND"
+        loading="lazy"
+        class="lazy"
+        rel="preload"
+        onload="this.classList.add('loaded')"
+      />
+      <div class="firstNew-outer-content" style="max-width: 90%">
+        <h2
+          style="
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: clamp(4rem, 10vw, 8rem);
+            margin-top: 19%;
+          "
+        >
+          VERSŌ ON DEMAND
+        </h2>
+        <p
+          style="
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            line-height: clamp(1.5rem, 3vw, 2.25rem);
+            margin-bottom: 7%;
+          "
+        >
+          NOW AVAILABLE
+        </p>
+        <a
+          class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--secondary"
+          style="color: #eb009b; border-color: #eb009b; font-size: 16px"
+          href="https://ondemand.studioverso.ca/"
+          >Learn More</a
+        >
+      </div>
+    </div>
+
+    <div class="slideSingle">
+      <img
+        src="https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/88ea6186-0072-4932-918e-ddd0a36e13d1/2-shop-merch.jpg"
+        alt="SHOP MERCH ONLINE"
+        loading="lazy"
+        class="lazy"
+        rel="preload"
+        onload="this.classList.add('loaded')"
+      />
+      <div class="firstNew-outer-content" style="max-width: 90%">
+        <h2
+          style="
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: clamp(4rem, 10vw, 8rem);
+            margin-top: 19%;
+            margin-bottom: 7%;
+          "
+        >
+          SHOP MERCH ONLINE
+        </h2>
+        <a
+          class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--secondary"
+          style="color: #eb009b; border-color: #eb009b; font-size: 16px"
+          href="https://studioverso.shop/"
+          >Buy Merch</a
+        >
+      </div>
+    </div>
+
+    <div class="slideSingle">
+      <img
+        src="https://images.squarespace-cdn.com/content/659ffd5acc33bf3dd5158e2d/ad4688d2-f191-4d8b-9a9a-43472f2e0b92/3-programs.jpg"
+        alt="6 PROGRAMS"
+        loading="lazy"
+        class="lazy"
+        rel="preload"
+        onload="this.classList.add('loaded')"
+      />
+      <div class="firstNew-outer-content" style="max-width: 90%">
+        <h2
+          style="
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: clamp(3rem, 8vw, 6rem);
+            margin-top: 19%;
+            margin-bottom: 5%;
+          "
+        >
+          6 PROGRAMS | 1 MEMBERSHIP
+        </h2>
+        <a
+          class="sqs-block-button-element sqs-block-button-element--medium sqs-button-element--secondary"
+          style="color: #eb009b; border-color: #eb009b; font-size: 16px"
+          href="/buy"
+          >Buy</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="banner__spotify">
+    <div id="spotify">
+      <div class="spotify__title spotify__title--banner">
+        <div class="spotify__title--text">
+          <p>playlist</p>
+        </div>
+      </div>
+      <div class="spotify__description spotify__description--banner">
+        <span class="spotify__description--normal">
+          <b>RIGHT HERE</b> - ANDY C REMIX
+        </span>
+      </div>
+      <iframe
+        data-src="https://open.spotify.com/embed/track/4EqJZ1bQ55Jq4vi2gHuQdQ"
+        width="300"
+        height="80"
+        frameborder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+        class="lazy-spotify"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize carousel
+    $(".firstNew-inner.owl-carousel").owlCarousel({
+      items: 1,
+      lazyLoad: true,
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+    });
+
+    // Lazy load Spotify iframe
+    const spotifyIframe = document.querySelector(".lazy-spotify");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          spotifyIframe.src = spotifyIframe.getAttribute("data-src");
+          observer.unobserve(spotifyIframe);
+        }
+      });
+    });
+    observer.observe(spotifyIframe);
+  });
+</script>
+
+<!-- Deactivate horizontal scroll -->
+<style>
+  body {
+    overflow-x: hidden;
+  }
+</style>

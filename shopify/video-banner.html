@@ -1,0 +1,35 @@
+<div
+  class="custom-video-wrapper"
+  style="width: 100%; display: flex; justify-content: center; overflow: hidden"
+>
+  <video
+    id="custom-autoplay-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="//studioverso.shop/cdn/shop/files/preview_images/368a246dd9634b04adc6cda849484ce4.thumbnail.0000000000_1100x.jpg?v=1747757062"
+    style="width: 100%; height: auto; display: block"
+  >
+    <source
+      src="//studioverso.shop/cdn/shop/videos/c/vp/368a246dd9634b04adc6cda849484ce4/368a246dd9634b04adc6cda849484ce4.HD-1080p-2.5Mbps-47915971.mp4?v=0"
+      type="video/mp4"
+    />
+    <img
+      src="//studioverso.shop/cdn/shop/files/preview_images/368a246dd9634b04adc6cda849484ce4.thumbnail.0000000000_1100x.jpg?v=1747757062"
+      alt="Fallback image"
+    />
+  </video>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("custom-autoplay-video");
+    if (video) {
+      video.play().catch(function (e) {
+        console.warn("Autoplay failed:", e);
+      });
+    }
+  });
+</script>
