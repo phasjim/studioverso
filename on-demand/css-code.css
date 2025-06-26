@@ -257,6 +257,10 @@ body {
 
 /* toggle / mobile menu */
 @media (max-width: 974px) {
+  .menu-social-icons {
+    display: none !important;
+  }
+
   .sv-navbar-nav-ul {
     padding-left: 0px !important;
   }
@@ -495,6 +499,25 @@ body {
   z-index: 999; /* Should be below your menu */
 }
 
+.menu-social-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 28px;
+  position: absolute;
+  bottom: 30px;
+  right: 35px;
+}
+
+.menu-social-icons a {
+  color: #aaa !important;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.menu-social-icons a:hover {
+  color: #ec008b !important;
+}
+
 /******************END NAV BAR STYLES******************/
 
 h1,
@@ -537,4 +560,48 @@ a.sv-underline-link {
   background-color: #eee;
   margin: 0 30px;
   border-radius: 5px;
+}
+
+.category_description strong {
+  font-family: "alternate-gothic-no-2-d", "Helvetica Neue Condensed",
+    "Arial Narrow", sans-serif !important;
+  display: block;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 20px 0 15px;
+}
+
+.category_description a {
+  display: inline-block;
+  background-color: #eb008b;
+  color: #fff;
+  border: 1px solid #eb008b;
+  padding: 2px 16px 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+  user-select: none;
+}
+
+.category_description a:hover {
+  color: #fff;
+  opacity: 0.75;
+}
+
+.category_description i a {
+  display: block;
+  width: max-content;
+  background-color: #fff;
+  color: #eb008b;
+  border: 1px solid #eb008b;
+  margin-top: 30px;
+}
+
+.category_description i a:hover {
+  color: #fff;
+  background-color: #eb008b;
+  opacity: 1;
 }

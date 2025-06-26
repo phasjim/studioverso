@@ -249,6 +249,10 @@ body {
 
 /* toggle / mobile menu */
 @media (max-width: 974px) {
+  .menu-social-icons {
+    display: none !important;
+  }
+
   .sv-navbar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.075) !important;
     height: 61px !important;
@@ -470,6 +474,25 @@ body {
   -webkit-backdrop-filter: blur(5px); /* Safari support */
   display: none;
   z-index: 999; /* Should be below your menu */
+}
+
+.menu-social-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 28px;
+  position: absolute;
+  bottom: 30px;
+  right: 35px;
+}
+
+.menu-social-icons a {
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.menu-social-icons a:hover {
+  color: #ec008b;
 }
 
 /********************************* END NAV BAR STYLES *********************************/
