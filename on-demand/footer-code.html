@@ -38,15 +38,25 @@
       });
   }
 
+  function removeEmptyAnchorsInCallout() {
+    document.querySelectorAll(".callout-section a").forEach(function (anchor) {
+      if (!anchor.textContent.trim()) {
+        anchor.remove();
+      }
+    });
+  }
+
   window.onload = function () {
     applyVersoPink();
     removeEquipment();
     handleEmptyCarousels();
+    removeEmptyAnchorsInCallout();
 
     const observer = new MutationObserver(function () {
       applyVersoPink();
       removeEquipment();
       handleEmptyCarousels();
+      removeEmptyAnchorsInCallout();
     });
 
     observer.observe(document.body, {
@@ -54,4 +64,39 @@
       subtree: true,
     });
   };
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+
+    // Add base class to all sections
+    sections.forEach((section) => {
+      section.classList.add("fade-in-section");
+    });
+
+    // Use IntersectionObserver for scroll-based fade-in
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Optional delay based on section position for extra staggered feel
+            const index = Array.from(sections).indexOf(entry.target);
+            setTimeout(() => {
+              entry.target.classList.add("is-visible");
+            }, index * 100); // 100ms stagger per section
+
+            observer.unobserve(entry.target); // Fade in once
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% is in view
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  });
 </script>

@@ -605,3 +605,47 @@ a.sv-underline-link {
   background-color: #eb008b;
   opacity: 1;
 }
+
+/* home page */
+
+.mockup-holder {
+  background-color: rgba(19, 22, 38, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mockup-holder h3 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.callout-section {
+  background-color: rgba(19, 22, 38, 0.1);
+}
+
+.callout-section img {
+  display: block;
+  max-width: 85%;
+  height: auto;
+  margin: auto;
+  border: 30px solid transparent;
+}
+
+.callout-section .callout-content {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.site-main .slider-home {
+  margin-top: 0 !important;
+}
+
+/* fade in section effect */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
